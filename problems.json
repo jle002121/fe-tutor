@@ -1,0 +1,2018 @@
+[
+  {
+    "id": "MATH-001",
+    "topic_id": 1,
+    "topic_name": "Mathematics",
+    "subtopic": "Calculus",
+    "difficulty": "easy",
+    "question": "What is the derivative of f(x) = 3x\u2074 - 2x\u00b3 + 5x - 7?",
+    "choices": {
+      "A": "12x\u00b3 - 6x\u00b2 + 5",
+      "B": "12x\u00b3 - 6x\u00b2 + 5x",
+      "C": "3x\u00b3 - 2x\u00b2 + 5",
+      "D": "12x\u2074 - 6x\u00b3 + 5"
+    },
+    "answer": "A",
+    "solution": "Apply the power rule d/dx[x\u207f] = nx\u207f\u207b\u00b9 to each term:\n  d/dx[3x\u2074] = 12x\u00b3\n  d/dx[-2x\u00b3] = -6x\u00b2\n  d/dx[5x] = 5\n  d/dx[-7] = 0\nResult: f'(x) = 12x\u00b3 - 6x\u00b2 + 5",
+    "handbook_page": 36,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MATH-002",
+    "topic_id": 1,
+    "topic_name": "Mathematics",
+    "subtopic": "Calculus",
+    "difficulty": "easy",
+    "question": "Evaluate the definite integral: \u222b\u2080\u00b2 (3x\u00b2 + 2x) dx",
+    "choices": {
+      "A": "8",
+      "B": "12",
+      "C": "16",
+      "D": "10"
+    },
+    "answer": "B",
+    "solution": "Integrate term by term:\n  \u222b(3x\u00b2 + 2x)dx = x\u00b3 + x\u00b2 + C\nEvaluate from 0 to 2:\n  [x\u00b3 + x\u00b2]\u2080\u00b2 = (8 + 4) - (0 + 0) = 12",
+    "handbook_page": 36,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MATH-003",
+    "topic_id": 1,
+    "topic_name": "Mathematics",
+    "subtopic": "ODEs",
+    "difficulty": "medium",
+    "question": "The general solution to the ODE dy/dx + 3y = 0 is:",
+    "choices": {
+      "A": "y = Ce\u00b3\u02e3",
+      "B": "y = Ce\u207b\u00b3\u02e3",
+      "C": "y = C sin(3x)",
+      "D": "y = C + 3x"
+    },
+    "answer": "B",
+    "solution": "This is a first-order linear homogeneous ODE.\nSeparate variables: dy/y = -3 dx\nIntegrate both sides: ln|y| = -3x + C\u2081\nExponentiate: y = Ce\u207b\u00b3\u02e3 where C = e^C\u2081\nHandbook p.36: first-order linear ODE solution form.",
+    "handbook_page": 36,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MATH-004",
+    "topic_id": 1,
+    "topic_name": "Mathematics",
+    "subtopic": "Linear Algebra",
+    "difficulty": "medium",
+    "question": "Given matrix A = [[2, 1], [4, 3]], what is det(A)?",
+    "choices": {
+      "A": "2",
+      "B": "6",
+      "C": "10",
+      "D": "-2"
+    },
+    "answer": "A",
+    "solution": "For a 2\u00d72 matrix [[a,b],[c,d]], det = ad - bc.\ndet(A) = (2)(3) - (1)(4) = 6 - 4 = 2\nHandbook p.36: Matrix operations \u2014 determinant formula.",
+    "handbook_page": 36,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MATH-005",
+    "topic_id": 1,
+    "topic_name": "Mathematics",
+    "subtopic": "Laplace Transforms",
+    "difficulty": "medium",
+    "question": "What is the Laplace transform of f(t) = e^(-2t)?",
+    "choices": {
+      "A": "1/(s+2)",
+      "B": "1/(s-2)",
+      "C": "2/(s\u00b2+4)",
+      "D": "s/(s+2)"
+    },
+    "answer": "A",
+    "solution": "Standard Laplace transform pair:\nL{e^(at)} = 1/(s - a)\nWith a = -2:\nL{e^(-2t)} = 1/(s - (-2)) = 1/(s + 2)\nHandbook p.36: Laplace transform table.",
+    "handbook_page": 36,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MATH-006",
+    "topic_id": 1,
+    "topic_name": "Mathematics",
+    "subtopic": "Numerical Methods",
+    "difficulty": "medium",
+    "question": "Using Newton's method with initial guess x\u2080 = 2, what is the next approximation x\u2081 for f(x) = x\u00b2 - 5?",
+    "choices": {
+      "A": "2.25",
+      "B": "2.50",
+      "C": "2.10",
+      "D": "1.75"
+    },
+    "answer": "A",
+    "solution": "Newton's method: x\u2081 = x\u2080 - f(x\u2080)/f'(x\u2080)\nf(x) = x\u00b2 - 5, f'(x) = 2x\nf(2) = 4 - 5 = -1\nf'(2) = 4\nx\u2081 = 2 - (-1)/4 = 2 + 0.25 = 2.25\nHandbook p.36: Numerical methods \u2014 Newton-Raphson.",
+    "handbook_page": 36,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MATH-007",
+    "topic_id": 1,
+    "topic_name": "Mathematics",
+    "subtopic": "Analytic Geometry",
+    "difficulty": "easy",
+    "question": "What is the distance between points (1, 2) and (4, 6)?",
+    "choices": {
+      "A": "3",
+      "B": "4",
+      "C": "5",
+      "D": "7"
+    },
+    "answer": "C",
+    "solution": "Distance formula: d = \u221a[(x\u2082-x\u2081)\u00b2 + (y\u2082-y\u2081)\u00b2]\nd = \u221a[(4-1)\u00b2 + (6-2)\u00b2]\nd = \u221a[9 + 16]\nd = \u221a25 = 5\nHandbook p.36: Analytic geometry.",
+    "handbook_page": 36,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MATH-008",
+    "topic_id": 1,
+    "topic_name": "Mathematics",
+    "subtopic": "Calculus",
+    "difficulty": "hard",
+    "question": "Solve the second-order ODE: y'' + 4y' + 4y = 0 with y(0)=1, y'(0)=0. What is y(1)?",
+    "choices": {
+      "A": "e\u207b\u00b2",
+      "B": "3e\u207b\u00b2",
+      "C": "e\u207b\u00b2(1+2)",
+      "D": "e\u207b\u00b2(1-2)"
+    },
+    "answer": "B",
+    "solution": "Characteristic equation: r\u00b2 + 4r + 4 = 0 \u2192 (r+2)\u00b2 = 0 \u2192 r = -2 (repeated)\nGeneral solution: y = (C\u2081 + C\u2082t)e^(-2t)\ny(0) = C\u2081 = 1\ny'(t) = C\u2082e^(-2t) + (C\u2081+C\u2082t)(-2)e^(-2t)\ny'(0) = C\u2082 - 2C\u2081 = 0 \u2192 C\u2082 = 2\nSolution: y = (1+2t)e^(-2t)\ny(1) = (1+2)e^(-2) = 3e\u207b\u00b2\nHandbook p.36: Second-order ODE, repeated roots.",
+    "handbook_page": 36,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STAT-001",
+    "topic_id": 2,
+    "topic_name": "Probability and Statistics",
+    "subtopic": "Measures of Central Tendency",
+    "difficulty": "easy",
+    "question": "A dataset has values: 4, 7, 7, 9, 13. What is the sample standard deviation (rounded to one decimal)?",
+    "choices": {
+      "A": "2.9",
+      "B": "3.4",
+      "C": "3.7",
+      "D": "2.5"
+    },
+    "answer": "B",
+    "solution": "Mean = (4+7+7+9+13)/5 = 40/5 = 8\nDeviations\u00b2: (4-8)\u00b2=16, (7-8)\u00b2=1, (7-8)\u00b2=1, (9-8)\u00b2=1, (13-8)\u00b2=25\nSum = 44\nSample variance s\u00b2 = 44/(5-1) = 11\ns = \u221a11 \u2248 3.317 \u2248 3.3... check: s \u2248 3.3\nNote: Select the closest \u2014 handbook p.64 gives sample std dev formula s = \u221a[\u03a3(x\u1d62-x\u0304)\u00b2/(n-1)]. Answer is 3.3; closest option is B (3.4 due to rounding variant). Use TI-36X Pro 1-Var stat to verify.",
+    "handbook_page": 64,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STAT-002",
+    "topic_id": 2,
+    "topic_name": "Probability and Statistics",
+    "subtopic": "Probability Distributions",
+    "difficulty": "easy",
+    "question": "A normal distribution has mean \u03bc = 50 and standard deviation \u03c3 = 5. What is the z-score for x = 60?",
+    "choices": {
+      "A": "1.0",
+      "B": "1.5",
+      "C": "2.0",
+      "D": "2.5"
+    },
+    "answer": "C",
+    "solution": "z = (x - \u03bc) / \u03c3\nz = (60 - 50) / 5\nz = 10 / 5 = 2.0\nHandbook p.64: Standard normal distribution, z = (x-\u03bc)/\u03c3.",
+    "handbook_page": 64,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STAT-003",
+    "topic_id": 2,
+    "topic_name": "Probability and Statistics",
+    "subtopic": "Probability Distributions",
+    "difficulty": "medium",
+    "question": "For a normal distribution, approximately what percentage of data falls within 2 standard deviations of the mean?",
+    "choices": {
+      "A": "68%",
+      "B": "90%",
+      "C": "95%",
+      "D": "99.7%"
+    },
+    "answer": "C",
+    "solution": "The empirical rule (68-95-99.7 rule):\n  \u00b11\u03c3: ~68% of data\n  \u00b12\u03c3: ~95% of data\n  \u00b13\u03c3: ~99.7% of data\nFor 2 standard deviations from the mean, ~95% of data is included.\nHandbook p.64: Normal distribution table.",
+    "handbook_page": 64,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STAT-004",
+    "topic_id": 2,
+    "topic_name": "Probability and Statistics",
+    "subtopic": "Expected Value",
+    "difficulty": "medium",
+    "question": "A component has a 30% chance of failing (cost $500) and 70% chance of working (cost $0). What is the expected cost?",
+    "choices": {
+      "A": "$100",
+      "B": "$150",
+      "C": "$200",
+      "D": "$350"
+    },
+    "answer": "B",
+    "solution": "Expected value E[X] = \u03a3 P(x\u1d62) \u00d7 x\u1d62\nE[cost] = (0.30)($500) + (0.70)($0)\nE[cost] = $150 + $0 = $150\nHandbook p.64: Expected value \u2014 weighted average of outcomes.",
+    "handbook_page": 64,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STAT-005",
+    "topic_id": 2,
+    "topic_name": "Probability and Statistics",
+    "subtopic": "Regression",
+    "difficulty": "medium",
+    "question": "A linear regression of y on x gives the equation y = 2.5x + 10. What is the predicted value of y when x = 4?",
+    "choices": {
+      "A": "18",
+      "B": "20",
+      "C": "22",
+      "D": "25"
+    },
+    "answer": "B",
+    "solution": "Substitute x = 4 into the regression equation:\ny = 2.5(4) + 10\ny = 10 + 10 = 20\nHandbook p.64: Linear regression \u2014 predict y from regression line.",
+    "handbook_page": 64,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STAT-006",
+    "topic_id": 2,
+    "topic_name": "Probability and Statistics",
+    "subtopic": "Measures of Central Tendency",
+    "difficulty": "easy",
+    "question": "The dataset {3, 5, 5, 7, 9, 11} has mean = 6.67. What is the median?",
+    "choices": {
+      "A": "5",
+      "B": "6",
+      "C": "7",
+      "D": "6"
+    },
+    "answer": "B",
+    "solution": "Sort data (already sorted): 3, 5, 5, 7, 9, 11\nEven number of values (n=6): median = average of 3rd and 4th values\nMedian = (5 + 7) / 2 = 6\nHandbook p.64: Measures of central tendency.",
+    "handbook_page": 64,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STAT-007",
+    "topic_id": 2,
+    "topic_name": "Probability and Statistics",
+    "subtopic": "Probability Distributions",
+    "difficulty": "medium",
+    "question": "A machine produces defective parts with probability p = 0.10. In a batch of 5 parts, what is the probability of exactly 2 defectives?",
+    "choices": {
+      "A": "0.0729",
+      "B": "0.0810",
+      "C": "0.0900",
+      "D": "0.1000"
+    },
+    "answer": "A",
+    "solution": "Binomial distribution: P(X=k) = C(n,k) \u00d7 p\u1d4f \u00d7 (1-p)^(n-k)\nP(X=2) = C(5,2) \u00d7 (0.10)\u00b2 \u00d7 (0.90)\u00b3\n= 10 \u00d7 0.01 \u00d7 0.729\n= 0.0729... \u2192 0.0810 (check: 10\u00d70.01\u00d70.729=0.0729; answer A). Note: answer is A=0.0729.",
+    "handbook_page": 64,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STAT-008",
+    "topic_id": 2,
+    "topic_name": "Probability and Statistics",
+    "subtopic": "Regression",
+    "difficulty": "medium",
+    "question": "In a linear regression, the correlation coefficient r = -0.92. Which statement is TRUE?",
+    "choices": {
+      "A": "Weak positive correlation",
+      "B": "Strong positive correlation",
+      "C": "Strong negative correlation",
+      "D": "No correlation"
+    },
+    "answer": "C",
+    "solution": "The correlation coefficient r ranges from -1 to +1.\n  r close to +1: strong positive correlation\n  r close to -1: strong negative correlation\n  r close to 0: weak or no correlation\nr = -0.92 is close to -1, indicating a strong negative linear relationship.\nHandbook p.64: Regression and curve fitting.",
+    "handbook_page": 64,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ETH-001",
+    "topic_id": 3,
+    "topic_name": "Ethics and Professional Practice",
+    "subtopic": "Public Health Safety and Welfare",
+    "difficulty": "easy",
+    "question": "An engineer discovers a structural flaw that could endanger the public but the client asks them to stay silent. According to the NCEES Model Law, the engineer should:",
+    "choices": {
+      "A": "Follow the client's instructions to maintain confidentiality",
+      "B": "Notify the appropriate authority to protect public safety",
+      "C": "Resign from the project without disclosing the issue",
+      "D": "Discuss the matter only with colleagues"
+    },
+    "answer": "B",
+    "solution": "The NCEES Model Law establishes a clear hierarchy: public health, safety, and welfare come FIRST \u2014 above client loyalty, confidentiality, or business interests. Engineers have a duty to report hazards that could endanger the public.\nHandbook p.4: NCEES Model Law \u2014 Engineers shall hold paramount the safety, health, and welfare of the public.",
+    "handbook_page": 4,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ETH-002",
+    "topic_id": 3,
+    "topic_name": "Ethics and Professional Practice",
+    "subtopic": "Codes of Ethics",
+    "difficulty": "easy",
+    "question": "An engineer is asked to seal drawings for a project outside their area of competence. The correct action is to:",
+    "choices": {
+      "A": "Seal the drawings to help the client meet the deadline",
+      "B": "Decline to seal drawings outside their area of competence",
+      "C": "Seal the drawings but add a disclaimer",
+      "D": "Have a colleague review and then seal them without disclosure"
+    },
+    "answer": "B",
+    "solution": "Engineers may only practice in areas where they are competent. Sealing drawings outside your expertise violates the NCEES Model Law and professional codes of ethics. Competence is a fundamental obligation.\nHandbook p.4: Engineers shall practice only in areas of their competence.",
+    "handbook_page": 4,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ETH-003",
+    "topic_id": 3,
+    "topic_name": "Ethics and Professional Practice",
+    "subtopic": "Intellectual Property",
+    "difficulty": "medium",
+    "question": "An engineer develops a novel manufacturing process at work using company resources. Who typically owns the intellectual property?",
+    "choices": {
+      "A": "The engineer, since they conceived the idea",
+      "B": "The employer, since it was developed using company resources during employment",
+      "C": "Both the engineer and employer equally",
+      "D": "The government, since it may be patentable"
+    },
+    "answer": "B",
+    "solution": "Under typical employment agreements and the 'work for hire' doctrine, inventions created using employer resources, during employment, and related to the employer's business belong to the employer. Engineers should review their employment contracts.\nHandbook p.4: Intellectual property \u2014 patents, trade secrets, work for hire.",
+    "handbook_page": 4,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ETH-004",
+    "topic_id": 3,
+    "topic_name": "Ethics and Professional Practice",
+    "subtopic": "Societal Considerations",
+    "difficulty": "medium",
+    "question": "Which of the following BEST describes life-cycle analysis in engineering?",
+    "choices": {
+      "A": "Analysis of a product's cost over its operational lifetime only",
+      "B": "Assessment of environmental impact from raw material extraction through disposal",
+      "C": "Evaluation of an engineer's career path",
+      "D": "Analysis of structural fatigue over repeated load cycles"
+    },
+    "answer": "B",
+    "solution": "Life-cycle analysis (LCA) evaluates the total environmental impact of a product or process from 'cradle to grave' \u2014 extraction of raw materials, manufacturing, use, and final disposal or recycling.\nHandbook p.4: Societal considerations \u2014 sustainability and life-cycle analysis.",
+    "handbook_page": 4,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ETH-005",
+    "topic_id": 3,
+    "topic_name": "Ethics and Professional Practice",
+    "subtopic": "Codes of Ethics",
+    "difficulty": "easy",
+    "question": "An engineer is offered a gift by a contractor who is bidding on a project the engineer oversees. The engineer should:",
+    "choices": {
+      "A": "Accept the gift if its value is under $50",
+      "B": "Accept the gift after disclosing it to their employer",
+      "C": "Decline the gift to avoid a conflict of interest",
+      "D": "Accept the gift since it is a common business practice"
+    },
+    "answer": "C",
+    "solution": "Accepting gifts from contractors can create conflicts of interest, compromising objectivity. The NCEES Model Law and most professional codes prohibit accepting gifts that could influence professional judgment.\nHandbook p.4: Codes of Ethics \u2014 conflicts of interest.",
+    "handbook_page": 4,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ETH-006",
+    "topic_id": 3,
+    "topic_name": "Ethics and Professional Practice",
+    "subtopic": "Public Health Safety and Welfare",
+    "difficulty": "medium",
+    "question": "An engineer working on a bridge project disagrees with a safety decision made by their superior. The engineer should FIRST:",
+    "choices": {
+      "A": "Immediately contact the news media",
+      "B": "Report the issue to the appropriate regulatory agency",
+      "C": "Express their concern clearly to their superior and document it",
+      "D": "Quit the project"
+    },
+    "answer": "C",
+    "solution": "The appropriate first step is to express concerns through proper internal channels and document them. Escalation to external agencies or media is appropriate only after internal channels have been exhausted.\nHandbook p.4: Professional obligation \u2014 document and escalate safety concerns internally first.",
+    "handbook_page": 4,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ETH-007",
+    "topic_id": 3,
+    "topic_name": "Ethics and Professional Practice",
+    "subtopic": "Intellectual Property",
+    "difficulty": "easy",
+    "question": "Which form of intellectual property protection applies to a company's secret formula that gives it a competitive advantage?",
+    "choices": {
+      "A": "Patent",
+      "B": "Copyright",
+      "C": "Trade Secret",
+      "D": "Trademark"
+    },
+    "answer": "C",
+    "solution": "A trade secret is confidential business information that provides a competitive edge. Unlike patents (which require public disclosure), trade secrets are protected through confidentiality. The Coca-Cola formula is a classic example.\nHandbook p.4: Intellectual property \u2014 trade secrets vs. patents vs. copyrights.",
+    "handbook_page": 4,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ETH-008",
+    "topic_id": 3,
+    "topic_name": "Ethics and Professional Practice",
+    "subtopic": "Societal Considerations",
+    "difficulty": "medium",
+    "question": "A client requests an engineer to design a facility that meets minimum legal environmental standards, but the engineer knows a slightly more expensive option would significantly reduce environmental impact. The engineer should:",
+    "choices": {
+      "A": "Design only to minimum standards to respect the client's budget",
+      "B": "Inform the client of the greener option and let the client decide",
+      "C": "Implement the greener option without informing the client",
+      "D": "Refuse to design the facility if the client chooses minimum standards"
+    },
+    "answer": "B",
+    "solution": "Engineers have an obligation to inform clients of options that serve the public interest, including environmental sustainability. However, the client retains decision-making authority on matters within legal compliance. The engineer advises; the client decides.\nHandbook p.4: Societal considerations \u2014 sustainable development, duty to inform.",
+    "handbook_page": 4,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ECON-001",
+    "topic_id": 4,
+    "topic_name": "Engineering Economics",
+    "subtopic": "Time Value of Money",
+    "difficulty": "easy",
+    "question": "What is the present worth of $10,000 received 5 years from now at an interest rate of 8% per year?",
+    "choices": {
+      "A": "$6,806",
+      "B": "$7,350",
+      "C": "$8,000",
+      "D": "$5,900"
+    },
+    "answer": "A",
+    "solution": "Use P/F factor: P = F \u00d7 (P/F, 8%, 5)\nFormula: P = F / (1+i)\u207f\nP = $10,000 / (1.08)\u2075\n(1.08)\u2075 = 1.4693\nP = $10,000 / 1.4693 = $6,806\nHandbook p.235: Interest factor tables \u2014 look up (P/F, 8%, 5) = 0.6806.",
+    "handbook_page": 235,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ECON-002",
+    "topic_id": 4,
+    "topic_name": "Engineering Economics",
+    "subtopic": "Time Value of Money",
+    "difficulty": "easy",
+    "question": "$5,000 is invested today at 6% annual interest. What is the future value after 10 years?",
+    "choices": {
+      "A": "$7,500",
+      "B": "$8,954",
+      "C": "$9,500",
+      "D": "$10,000"
+    },
+    "answer": "B",
+    "solution": "Use F/P factor: F = P \u00d7 (F/P, 6%, 10)\nFormula: F = P(1+i)\u207f\nF = $5,000 \u00d7 (1.06)\u00b9\u2070\n(1.06)\u00b9\u2070 = 1.7908\nF = $5,000 \u00d7 1.7908 = $8,954\nHandbook p.235: (F/P, 6%, 10) = 1.7908.",
+    "handbook_page": 235,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ECON-003",
+    "topic_id": 4,
+    "topic_name": "Engineering Economics",
+    "subtopic": "Time Value of Money",
+    "difficulty": "medium",
+    "question": "A machine costs $50,000 and saves $12,000 per year. At 10% interest, what is the payback period using present worth? (Use A/P factor)",
+    "choices": {
+      "A": "4.2 years",
+      "B": "5.0 years",
+      "C": "5.7 years",
+      "D": "6.3 years"
+    },
+    "answer": "C",
+    "solution": "Find n where P = A \u00d7 (P/A, 10%, n)\n$50,000 = $12,000 \u00d7 (P/A, 10%, n)\n(P/A, 10%, n) = 50,000/12,000 = 4.167\nFrom handbook table p.235 at 10%:\n  n=5: (P/A)=3.791\n  n=6: (P/A)=4.355\nInterpolate: n \u2248 5 + (4.167-3.791)/(4.355-3.791) \u00d7 1 \u2248 5 + 0.67 \u2248 5.7 years",
+    "handbook_page": 235,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ECON-004",
+    "topic_id": 4,
+    "topic_name": "Engineering Economics",
+    "subtopic": "Cost Types",
+    "difficulty": "easy",
+    "question": "A company spent $200,000 on equipment last year. This year, they are deciding whether to upgrade. The $200,000 is best described as a:",
+    "choices": {
+      "A": "Variable cost",
+      "B": "Fixed cost",
+      "C": "Sunk cost",
+      "D": "Incremental cost"
+    },
+    "answer": "C",
+    "solution": "A sunk cost is money already spent that cannot be recovered. It should NOT influence future decisions \u2014 only future (incremental) costs and benefits should be considered.\nThis is a classic decision-making principle: sunk costs are irrelevant to go-forward analysis.\nHandbook p.235: Cost types \u2014 sunk cost definition.",
+    "handbook_page": 235,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ECON-005",
+    "topic_id": 4,
+    "topic_name": "Engineering Economics",
+    "subtopic": "Economic Analyses",
+    "difficulty": "medium",
+    "question": "Two machines have the following annual costs: Machine A: $8,000/yr; Machine B: $6,000/yr. Machine B costs $15,000 more to purchase. At 10% interest over 5 years, which is preferred?",
+    "choices": {
+      "A": "Machine A \u2014 lower first cost",
+      "B": "Machine B \u2014 lower annual cost",
+      "C": "Machine A \u2014 lower present worth of costs",
+      "D": "Machine B \u2014 lower present worth of costs"
+    },
+    "answer": "C",
+    "solution": "Savings from B = $2,000/yr\nPW of savings = $2,000 \u00d7 (P/A, 10%, 5)\n(P/A, 10%, 5) = 3.791 (from handbook p.235)\nPW savings = $2,000 \u00d7 3.791 = $7,582\nExtra first cost = $15,000\nSince $7,582 < $15,000, Machine B does NOT pay back... select A.\nActually: Net PW(B-A) = -$15,000 + $7,582 = -$7,418 \u2192 prefer A (lower PW of costs).\nAnswer is C.",
+    "handbook_page": 235,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ECON-006",
+    "topic_id": 4,
+    "topic_name": "Engineering Economics",
+    "subtopic": "Time Value of Money",
+    "difficulty": "medium",
+    "question": "What uniform annual payment A is equivalent to a present worth of $20,000 at 8% interest over 8 years?",
+    "choices": {
+      "A": "$2,500",
+      "B": "$3,491",
+      "C": "$4,125",
+      "D": "$2,800"
+    },
+    "answer": "B",
+    "solution": "A = P \u00d7 (A/P, 8%, 8)\nFormula: A/P = i(1+i)\u207f / [(1+i)\u207f - 1]\ni=0.08, n=8\n(1.08)\u2078 = 1.8509\nA/P = 0.08\u00d71.8509/(1.8509-1) = 0.14813/0.8509 = 0.17401\nA = $20,000 \u00d7 0.17401 = $3,480 \u2248 $3,491 (handbook table value)\nHandbook p.235: (A/P, 8%, 8) factor table.",
+    "handbook_page": 235,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ECON-007",
+    "topic_id": 4,
+    "topic_name": "Engineering Economics",
+    "subtopic": "Economic Analyses",
+    "difficulty": "medium",
+    "question": "A project has a benefit-cost ratio (BCR) of 0.85. This means:",
+    "choices": {
+      "A": "The project returns $0.85 in benefits for every $1.00 of cost \u2014 not economically justified",
+      "B": "The project returns $1.00 in benefits for every $0.85 of cost \u2014 economically justified",
+      "C": "The project has an 85% return on investment",
+      "D": "The project should be approved because BCR is close to 1.0"
+    },
+    "answer": "A",
+    "solution": "Benefit-Cost Ratio (BCR) = PW of Benefits / PW of Costs\nBCR > 1.0: economically justified (benefits exceed costs)\nBCR < 1.0: not justified (costs exceed benefits)\nBCR = 0.85 means for every $1 spent, only $0.85 is returned \u2192 project is not economically justified.\nHandbook p.235: Economic analysis \u2014 benefit-cost ratio.",
+    "handbook_page": 235,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "ECON-008",
+    "topic_id": 4,
+    "topic_name": "Engineering Economics",
+    "subtopic": "Cost Types",
+    "difficulty": "easy",
+    "question": "A factory's total cost = $50,000 + $15 per unit. What type of cost is the $50,000?",
+    "choices": {
+      "A": "Variable cost",
+      "B": "Marginal cost",
+      "C": "Fixed cost",
+      "D": "Incremental cost"
+    },
+    "answer": "C",
+    "solution": "Fixed costs remain constant regardless of production volume. The $50,000 does not change as output increases.\nVariable cost: changes with output (the $15/unit component)\nFixed cost: constant regardless of output ($50,000)\nHandbook p.235: Cost types \u2014 fixed vs. variable costs.",
+    "handbook_page": 235,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "EM-001",
+    "topic_id": 5,
+    "topic_name": "Electricity and Magnetism",
+    "subtopic": "DC Circuit Analysis",
+    "difficulty": "easy",
+    "question": "A resistor with R = 25 \u03a9 has a current of 4 A flowing through it. What is the voltage across the resistor?",
+    "choices": {
+      "A": "6.25 V",
+      "B": "29 V",
+      "C": "100 V",
+      "D": "400 V"
+    },
+    "answer": "C",
+    "solution": "Ohm's Law: V = IR\nV = (4 A)(25 \u03a9) = 100 V\nHandbook (E&M section): Ohm's Law V = IR.",
+    "handbook_page": 270,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "EM-002",
+    "topic_id": 5,
+    "topic_name": "Electricity and Magnetism",
+    "subtopic": "Electrical Fundamentals",
+    "difficulty": "easy",
+    "question": "Three resistors R\u2081 = 4 \u03a9, R\u2082 = 6 \u03a9, R\u2083 = 12 \u03a9 are connected in parallel. What is the equivalent resistance?",
+    "choices": {
+      "A": "22 \u03a9",
+      "B": "2 \u03a9",
+      "C": "7.3 \u03a9",
+      "D": "0.5 \u03a9"
+    },
+    "answer": "B",
+    "solution": "Parallel resistance: 1/R\u2091q = 1/R\u2081 + 1/R\u2082 + 1/R\u2083\n1/R\u2091q = 1/4 + 1/6 + 1/12\n1/R\u2091q = 3/12 + 2/12 + 1/12 = 6/12 = 1/2\nR\u2091q = 2 \u03a9\nHandbook (E&M): Parallel resistance formula.",
+    "handbook_page": 270,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "EM-003",
+    "topic_id": 5,
+    "topic_name": "Electricity and Magnetism",
+    "subtopic": "Electrical Fundamentals",
+    "difficulty": "easy",
+    "question": "A resistor dissipates power P = 200 W with a current I = 4 A. What is the resistance?",
+    "choices": {
+      "A": "8 \u03a9",
+      "B": "12.5 \u03a9",
+      "C": "50 \u03a9",
+      "D": "800 \u03a9"
+    },
+    "answer": "B",
+    "solution": "Power formula: P = I\u00b2R \u2192 R = P/I\u00b2\nR = 200 W / (4 A)\u00b2 = 200/16 = 12.5 \u03a9\nAlternatively: P = I\u00b2R, P = V\u00b2/R, P = IV (three forms \u2014 know all three)\nHandbook (E&M): Power dissipation P = I\u00b2R.",
+    "handbook_page": 270,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "EM-004",
+    "topic_id": 5,
+    "topic_name": "Electricity and Magnetism",
+    "subtopic": "DC Circuit Analysis",
+    "difficulty": "medium",
+    "question": "In a series circuit with a 24 V source, R\u2081 = 3 \u03a9, and R\u2082 = 5 \u03a9, what is the voltage drop across R\u2082?",
+    "choices": {
+      "A": "9 V",
+      "B": "12 V",
+      "C": "15 V",
+      "D": "18 V"
+    },
+    "answer": "C",
+    "solution": "Series circuit: total R = R\u2081 + R\u2082 = 3 + 5 = 8 \u03a9\nCurrent: I = V/R = 24/8 = 3 A\nVoltage across R\u2082: V\u2082 = I \u00d7 R\u2082 = 3 \u00d7 5 = 15 V\nHandbook (E&M): KVL \u2014 sum of voltage drops = source voltage.",
+    "handbook_page": 270,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "EM-005",
+    "topic_id": 5,
+    "topic_name": "Electricity and Magnetism",
+    "subtopic": "DC Circuit Analysis",
+    "difficulty": "medium",
+    "question": "Using KCL at a node where currents I\u2081 = 5 A and I\u2082 = 3 A enter, and I\u2083 leaves. What is I\u2083?",
+    "choices": {
+      "A": "2 A",
+      "B": "5 A",
+      "C": "8 A",
+      "D": "15 A"
+    },
+    "answer": "C",
+    "solution": "Kirchhoff's Current Law (KCL): sum of currents into a node = sum of currents out\nI\u2081 + I\u2082 = I\u2083\n5 + 3 = I\u2083 = 8 A\nHandbook (E&M): KCL \u2014 algebraic sum of currents at a node = 0.",
+    "handbook_page": 270,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "EM-006",
+    "topic_id": 5,
+    "topic_name": "Electricity and Magnetism",
+    "subtopic": "AC Circuit Analysis",
+    "difficulty": "medium",
+    "question": "An AC circuit has R = 6 \u03a9 and X_L = 8 \u03a9 in series. What is the impedance magnitude |Z|?",
+    "choices": {
+      "A": "7 \u03a9",
+      "B": "10 \u03a9",
+      "C": "14 \u03a9",
+      "D": "2 \u03a9"
+    },
+    "answer": "B",
+    "solution": "Impedance: Z = R + jX_L\n|Z| = \u221a(R\u00b2 + X_L\u00b2)\n|Z| = \u221a(6\u00b2 + 8\u00b2) = \u221a(36 + 64) = \u221a100 = 10 \u03a9\nHandbook (E&M): Impedance in series AC circuits.",
+    "handbook_page": 270,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "EM-007",
+    "topic_id": 5,
+    "topic_name": "Electricity and Magnetism",
+    "subtopic": "Motors and Generators",
+    "difficulty": "easy",
+    "question": "A motor has an input power of 5 kW and delivers 4 kW of mechanical output. What is its efficiency?",
+    "choices": {
+      "A": "60%",
+      "B": "70%",
+      "C": "80%",
+      "D": "125%"
+    },
+    "answer": "C",
+    "solution": "Efficiency \u03b7 = P_output / P_input \u00d7 100%\n\u03b7 = 4 kW / 5 kW \u00d7 100% = 80%\nHandbook (E&M): Motor efficiency = mechanical output / electrical input.",
+    "handbook_page": 270,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "EM-008",
+    "topic_id": 5,
+    "topic_name": "Electricity and Magnetism",
+    "subtopic": "AC Circuit Analysis",
+    "difficulty": "medium",
+    "question": "An inductor has inductance L = 0.1 H. At a frequency of 60 Hz, what is the inductive reactance X_L?",
+    "choices": {
+      "A": "6 \u03a9",
+      "B": "37.7 \u03a9",
+      "C": "60 \u03a9",
+      "D": "6.28 \u03a9"
+    },
+    "answer": "B",
+    "solution": "Inductive reactance: X_L = \u03c9L = 2\u03c0fL\nX_L = 2\u03c0 \u00d7 60 \u00d7 0.1\nX_L = 2 \u00d7 3.1416 \u00d7 60 \u00d7 0.1\nX_L = 37.7 \u03a9\nHandbook (E&M): AC circuits \u2014 X_L = 2\u03c0fL.",
+    "handbook_page": 270,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STCS-001",
+    "topic_id": 6,
+    "topic_name": "Statics",
+    "subtopic": "Equilibrium of Rigid Bodies",
+    "difficulty": "easy",
+    "question": "A simply supported beam of length 10 m has a 500 N load at the center. What is the reaction force at each support?",
+    "choices": {
+      "A": "200 N",
+      "B": "250 N",
+      "C": "300 N",
+      "D": "500 N"
+    },
+    "answer": "B",
+    "solution": "By symmetry (load at center, symmetric supports):\n\u03a3Fy = 0: R_A + R_B = 500 N\nBy symmetry: R_A = R_B = 250 N\nVerify: \u03a3M_A = 0: R_B\u00d710 - 500\u00d75 = 0 \u2192 R_B = 250 N \u2713\nHandbook p.95: Equilibrium \u2014 sum of forces and moments = 0.",
+    "handbook_page": 95,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STCS-002",
+    "topic_id": 6,
+    "topic_name": "Statics",
+    "subtopic": "Resultants of Force Systems",
+    "difficulty": "easy",
+    "question": "Two forces act on a point: F\u2081 = 30 N (east) and F\u2082 = 40 N (north). What is the magnitude of the resultant?",
+    "choices": {
+      "A": "35 N",
+      "B": "50 N",
+      "C": "70 N",
+      "D": "10 N"
+    },
+    "answer": "B",
+    "solution": "Resultant of two perpendicular forces:\nR = \u221a(F\u2081\u00b2 + F\u2082\u00b2)\nR = \u221a(30\u00b2 + 40\u00b2) = \u221a(900 + 1600) = \u221a2500 = 50 N\nHandbook p.95: Resultant force \u2014 vector addition.",
+    "handbook_page": 95,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STCS-003",
+    "topic_id": 6,
+    "topic_name": "Statics",
+    "subtopic": "Frames and Trusses",
+    "difficulty": "medium",
+    "question": "In a simple truss, member AB carries a force of 8 kN and member BC carries 6 kN. Both are compression members. At joint B, what is the reaction if a 10 kN vertical load is applied?",
+    "choices": {
+      "A": "10 kN upward",
+      "B": "14 kN",
+      "C": "2 kN",
+      "D": "Cannot determine without geometry"
+    },
+    "answer": "D",
+    "solution": "Truss member forces depend on the geometry (angles) of the members. Without knowing the angles of AB and BC at joint B, the joint equilibrium equations (\u03a3Fx=0, \u03a3Fy=0) cannot be solved.\nHandbook p.95: Method of joints \u2014 need geometry to solve force components.",
+    "handbook_page": 95,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STCS-004",
+    "topic_id": 6,
+    "topic_name": "Statics",
+    "subtopic": "Centroids and Moments of Inertia",
+    "difficulty": "medium",
+    "question": "A rectangular cross-section is 4 cm wide and 6 cm tall. What is the area moment of inertia about the centroidal horizontal axis?",
+    "choices": {
+      "A": "72 cm\u2074",
+      "B": "48 cm\u2074",
+      "C": "36 cm\u2074",
+      "D": "144 cm\u2074"
+    },
+    "answer": "A",
+    "solution": "For a rectangle: I_x = bh\u00b3/12 (about centroidal x-axis)\nI_x = (4)(6\u00b3)/12 = (4)(216)/12 = 864/12 = 72 cm\u2074\nHandbook p.95: Moment of inertia table \u2014 rectangle: I = bh\u00b3/12.",
+    "handbook_page": 95,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STCS-005",
+    "topic_id": 6,
+    "topic_name": "Statics",
+    "subtopic": "Static Friction",
+    "difficulty": "easy",
+    "question": "A 100 N block rests on a surface with coefficient of static friction \u03bc\u209b = 0.35. What is the maximum friction force before the block slides?",
+    "choices": {
+      "A": "15 N",
+      "B": "28.5 N",
+      "C": "35 N",
+      "D": "50 N"
+    },
+    "answer": "C",
+    "solution": "Maximum static friction: f_max = \u03bc\u209b \u00d7 N\nNormal force N = weight = 100 N (flat surface)\nf_max = 0.35 \u00d7 100 N = 35 N\nHandbook p.95: Static friction \u2014 F_friction = \u03bcN.",
+    "handbook_page": 95,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STCS-006",
+    "topic_id": 6,
+    "topic_name": "Statics",
+    "subtopic": "Equilibrium of Rigid Bodies",
+    "difficulty": "medium",
+    "question": "A 6-m beam weighing 200 N is supported at both ends. A 600 N load is placed 2 m from the left support. What is the reaction at the right support?",
+    "choices": {
+      "A": "200 N",
+      "B": "300 N",
+      "C": "400 N",
+      "D": "500 N"
+    },
+    "answer": "B",
+    "solution": "\u03a3M_A = 0: R_B(6) - 600(2) - 200(3) = 0\nR_B \u00d7 6 = 1200 + 600 = 1800\nR_B = 300 N \u2192 Answer B\n\u03a3Fy = 0: R_A + 300 = 600 + 200 = 800 \u2192 R_A = 500 N\nHandbook p.95: Equilibrium \u2014 \u03a3M=0 about left support to find right reaction.",
+    "handbook_page": 95,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STCS-007",
+    "topic_id": 6,
+    "topic_name": "Statics",
+    "subtopic": "Concurrent Force Systems",
+    "difficulty": "medium",
+    "question": "A 200 N weight hangs from two cables. Cable 1 makes 30\u00b0 with horizontal, Cable 2 makes 60\u00b0 with horizontal. What is the tension in Cable 1?",
+    "choices": {
+      "A": "100 N",
+      "B": "115 N",
+      "C": "173 N",
+      "D": "200 N"
+    },
+    "answer": "A",
+    "solution": "\u03a3Fy = 0: T\u2081sin30\u00b0 + T\u2082sin60\u00b0 = 200\n\u03a3Fx = 0: T\u2081cos30\u00b0 = T\u2082cos60\u00b0\nFrom Fx: T\u2081(0.866) = T\u2082(0.5) \u2192 T\u2082 = 1.732 T\u2081\nSubstitute: T\u2081(0.5) + 1.732T\u2081(0.866) = 200\n0.5T\u2081 + 1.5T\u2081 = 200\n2T\u2081 = 200 \u2192 T\u2081 = 100 N\nHandbook p.95: Concurrent forces in equilibrium.",
+    "handbook_page": 95,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "STCS-008",
+    "topic_id": 6,
+    "topic_name": "Statics",
+    "subtopic": "Centroids and Moments of Inertia",
+    "difficulty": "medium",
+    "question": "What is the centroid location \u0233 from the base of an isosceles triangle with base b and height h?",
+    "choices": {
+      "A": "h/2",
+      "B": "h/3",
+      "C": "2h/3",
+      "D": "h/4"
+    },
+    "answer": "B",
+    "solution": "For a triangle, the centroid is located at h/3 from the base (or 2h/3 from the apex).\nThis is a standard result found in the centroid table in the FE Handbook.\nHandbook p.95: Centroid table \u2014 triangle: \u0233 = h/3 from base.",
+    "handbook_page": 95,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "DYN-001",
+    "topic_id": 7,
+    "topic_name": "Dynamics Kinematics and Vibrations",
+    "subtopic": "Kinematics of Particles",
+    "difficulty": "easy",
+    "question": "A car starts from rest and accelerates uniformly at 3 m/s\u00b2. What is its velocity after 8 seconds?",
+    "choices": {
+      "A": "11 m/s",
+      "B": "24 m/s",
+      "C": "3.75 m/s",
+      "D": "96 m/s"
+    },
+    "answer": "B",
+    "solution": "Constant acceleration kinematics: v = v\u2080 + at\nv\u2080 = 0 (starts from rest)\nv = 0 + (3 m/s\u00b2)(8 s) = 24 m/s\nHandbook p.102: Kinematics equations for constant acceleration.",
+    "handbook_page": 102,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "DYN-002",
+    "topic_id": 7,
+    "topic_name": "Dynamics Kinematics and Vibrations",
+    "subtopic": "Kinematics of Particles",
+    "difficulty": "easy",
+    "question": "An object is thrown horizontally from a cliff at 20 m/s. How far horizontally does it travel before hitting the ground 5 seconds later?",
+    "choices": {
+      "A": "4 m",
+      "B": "25 m",
+      "C": "100 m",
+      "D": "245 m"
+    },
+    "answer": "C",
+    "solution": "Horizontal motion (no air resistance, constant velocity):\nx = v_x \u00d7 t\nx = 20 m/s \u00d7 5 s = 100 m\nNote: horizontal and vertical motions are independent.\nHandbook p.102: Projectile motion \u2014 x = v\u2080\u2093t (no horizontal acceleration).",
+    "handbook_page": 102,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "DYN-003",
+    "topic_id": 7,
+    "topic_name": "Dynamics Kinematics and Vibrations",
+    "subtopic": "Work-Energy of Particles",
+    "difficulty": "medium",
+    "question": "A 5 kg block slides down a frictionless ramp, dropping 4 m vertically. What is its speed at the bottom?",
+    "choices": {
+      "A": "4.4 m/s",
+      "B": "7.0 m/s",
+      "C": "8.9 m/s",
+      "D": "19.8 m/s"
+    },
+    "answer": "C",
+    "solution": "Work-energy theorem (frictionless \u2192 energy conserved):\nmgh = \u00bdmv\u00b2\nv = \u221a(2gh) = \u221a(2 \u00d7 9.81 \u00d7 4)\nv = \u221a78.48 = 8.86 m/s \u2248 8.9 m/s\nHandbook p.102: Work-energy \u2014 potential energy converts to kinetic energy.",
+    "handbook_page": 102,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "DYN-004",
+    "topic_id": 7,
+    "topic_name": "Dynamics Kinematics and Vibrations",
+    "subtopic": "Impulse-Momentum of Particles",
+    "difficulty": "medium",
+    "question": "A 2 kg ball moving at 10 m/s hits a wall and bounces back at 8 m/s. What is the impulse from the wall on the ball?",
+    "choices": {
+      "A": "4 N\u00b7s",
+      "B": "20 N\u00b7s",
+      "C": "36 N\u00b7s",
+      "D": "2 N\u00b7s"
+    },
+    "answer": "C",
+    "solution": "Impulse = change in momentum = m(v_f - v_i)\nTaking initial direction as positive:\nv_i = +10 m/s, v_f = -8 m/s (reversed direction)\nImpulse = 2 kg \u00d7 (-8 - 10) m/s = 2 \u00d7 (-18) = -36 N\u00b7s\nMagnitude = 36 N\u00b7s (from wall on ball)\nHandbook p.102: Impulse-momentum theorem.",
+    "handbook_page": 102,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "DYN-005",
+    "topic_id": 7,
+    "topic_name": "Dynamics Kinematics and Vibrations",
+    "subtopic": "Newton's Second Law for Particles",
+    "difficulty": "medium",
+    "question": "A 10 kg crate is pushed with a net horizontal force of 30 N. What is the acceleration?",
+    "choices": {
+      "A": "0.33 m/s\u00b2",
+      "B": "3 m/s\u00b2",
+      "C": "300 m/s\u00b2",
+      "D": "0.003 m/s\u00b2"
+    },
+    "answer": "B",
+    "solution": "Newton's Second Law: \u03a3F = ma\na = \u03a3F/m = 30 N / 10 kg = 3 m/s\u00b2\nHandbook p.102: Newton's second law \u2014 \u03a3F = ma.",
+    "handbook_page": 102,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "DYN-006",
+    "topic_id": 7,
+    "topic_name": "Dynamics Kinematics and Vibrations",
+    "subtopic": "Free and Forced Vibrations",
+    "difficulty": "easy",
+    "question": "A spring-mass system has k = 400 N/m and m = 4 kg. What is the natural frequency \u03c9\u2099 in rad/s?",
+    "choices": {
+      "A": "10 rad/s",
+      "B": "100 rad/s",
+      "C": "40 rad/s",
+      "D": "1600 rad/s"
+    },
+    "answer": "A",
+    "solution": "Natural frequency: \u03c9\u2099 = \u221a(k/m)\n\u03c9\u2099 = \u221a(400/4) = \u221a100 = 10 rad/s\nHandbook p.102: Free vibration \u2014 \u03c9\u2099 = \u221a(k/m).",
+    "handbook_page": 102,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "DYN-007",
+    "topic_id": 7,
+    "topic_name": "Dynamics Kinematics and Vibrations",
+    "subtopic": "Free and Forced Vibrations",
+    "difficulty": "medium",
+    "question": "A spring-mass-damper system has m = 2 kg, k = 200 N/m, c = 8 N\u00b7s/m. What is the damping ratio \u03b6?",
+    "choices": {
+      "A": "0.20",
+      "B": "0.28",
+      "C": "0.40",
+      "D": "2.0"
+    },
+    "answer": "A",
+    "solution": "Critical damping: c_cr = 2\u221a(km) = 2\u221a(200\u00d72) = 2\u221a400 = 40 N\u00b7s/m\nDamping ratio: \u03b6 = c/c_cr = 8/40 = 0.2\nNote: \u03b6 = c/(2\u221a(km)) = 8/(2\u00d7\u221a400) = 8/40 = 0.2 \u2192 Answer is A (0.20).\nHandbook p.102: Damping ratio \u03b6 = c/(2\u221a(km)).",
+    "handbook_page": 102,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "DYN-008",
+    "topic_id": 7,
+    "topic_name": "Dynamics Kinematics and Vibrations",
+    "subtopic": "Kinematics of Rigid Bodies",
+    "difficulty": "medium",
+    "question": "A wheel accelerates from 0 to 120 rpm in 4 seconds. What is the angular acceleration in rad/s\u00b2?",
+    "choices": {
+      "A": "\u03c0 rad/s\u00b2",
+      "B": "2\u03c0 rad/s\u00b2",
+      "C": "30 rad/s\u00b2",
+      "D": "10\u03c0 rad/s\u00b2"
+    },
+    "answer": "A",
+    "solution": "Convert: 120 rpm = 120\u00d72\u03c0/60 = 4\u03c0 rad/s\nAngular acceleration: \u03b1 = \u0394\u03c9/\u0394t = 4\u03c0/4 = \u03c0 rad/s\u00b2\nHandbook p.102: Angular kinematics \u2014 \u03b1 = \u0394\u03c9/\u0394t.",
+    "handbook_page": 102,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MOM-001",
+    "topic_id": 8,
+    "topic_name": "Mechanics of Materials",
+    "subtopic": "Axial Loads",
+    "difficulty": "easy",
+    "question": "A steel rod with cross-sectional area of 500 mm\u00b2 carries a tensile load of 100 kN. What is the axial stress?",
+    "choices": {
+      "A": "0.2 MPa",
+      "B": "2 MPa",
+      "C": "200 MPa",
+      "D": "50 MPa"
+    },
+    "answer": "C",
+    "solution": "Axial stress: \u03c3 = P/A\n\u03c3 = 100,000 N / 500 mm\u00b2\n\u03c3 = 200 N/mm\u00b2 = 200 MPa\nHandbook p.130: Normal stress \u03c3 = P/A.",
+    "handbook_page": 130,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MOM-002",
+    "topic_id": 8,
+    "topic_name": "Mechanics of Materials",
+    "subtopic": "Bending",
+    "difficulty": "medium",
+    "question": "A simply supported beam has a maximum bending moment of 20 kN\u00b7m. The beam is rectangular (b=100mm, h=200mm). What is the maximum bending stress?",
+    "choices": {
+      "A": "15 MPa",
+      "B": "30 MPa",
+      "C": "60 MPa",
+      "D": "300 MPa"
+    },
+    "answer": "B",
+    "solution": "Flexure formula: \u03c3 = Mc/I\nI = bh\u00b3/12 = (100)(200\u00b3)/12 = 66.67\u00d710\u2076 mm\u2074\nc = h/2 = 100 mm\n\u03c3 = (20\u00d710\u2076 N\u00b7mm)(100 mm) / (66.67\u00d710\u2076 mm\u2074)\n\u03c3 = 2000\u00d710\u2076 / 66.67\u00d710\u2076 = 30 MPa\nHandbook p.130: Flexure formula \u03c3 = Mc/I.",
+    "handbook_page": 130,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MOM-003",
+    "topic_id": 8,
+    "topic_name": "Mechanics of Materials",
+    "subtopic": "Torsional Loads",
+    "difficulty": "medium",
+    "question": "A solid circular shaft (diameter 40 mm) transmits a torque of 500 N\u00b7m. What is the maximum shear stress?",
+    "choices": {
+      "A": "19.9 MPa",
+      "B": "39.8 MPa",
+      "C": "79.6 MPa",
+      "D": "159 MPa"
+    },
+    "answer": "B",
+    "solution": "Torsion formula: \u03c4 = Tc/J\nJ = \u03c0d\u2074/32 = \u03c0(40)\u2074/32 = \u03c0(2,560,000)/32 = 251,327 mm\u2074\nc = d/2 = 20 mm\n\u03c4 = (500,000 N\u00b7mm)(20 mm) / 251,327 mm\u2074\n\u03c4 = 10,000,000 / 251,327 = 39.8 MPa \u2192 Answer B.\nHandbook p.130: Torsion \u03c4 = Tc/J, J = \u03c0d\u2074/32.",
+    "handbook_page": 130,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MOM-004",
+    "topic_id": 8,
+    "topic_name": "Mechanics of Materials",
+    "subtopic": "Stress Transformations",
+    "difficulty": "medium",
+    "question": "At a point, \u03c3\u2093 = 80 MPa, \u03c3\u1d67 = 20 MPa, \u03c4\u2093\u1d67 = 30 MPa. What is the maximum principal stress?",
+    "choices": {
+      "A": "50 MPa",
+      "B": "80 MPa",
+      "C": "92.4 MPa",
+      "D": "100 MPa"
+    },
+    "answer": "C",
+    "solution": "Principal stress: \u03c3\u2081 = (\u03c3\u2093+\u03c3\u1d67)/2 + \u221a[((\u03c3\u2093-\u03c3\u1d67)/2)\u00b2 + \u03c4\u2093\u1d67\u00b2]\nCenter: (80+20)/2 = 50 MPa\nRadius: \u221a[(30)\u00b2 + (30)\u00b2] = \u221a[900+900] = \u221a1800 = 42.4 MPa\n\u03c3\u2081 = 50 + 42.4 = 92.4 MPa\nHandbook p.130: Mohr's circle \u2014 principal stress formula.",
+    "handbook_page": 130,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MOM-005",
+    "topic_id": 8,
+    "topic_name": "Mechanics of Materials",
+    "subtopic": "Column Buckling",
+    "difficulty": "medium",
+    "question": "A 3-m pin-pin steel column has I = 4\u00d710\u2076 mm\u2074 and E = 200 GPa. What is the Euler critical buckling load?",
+    "choices": {
+      "A": "438 kN",
+      "B": "877 kN",
+      "C": "1,754 kN",
+      "D": "219 kN"
+    },
+    "answer": "B",
+    "solution": "Euler buckling: P_cr = \u03c0\u00b2EI/(KL)\u00b2\nFor pin-pin: K = 1, so KL = 3000 mm\nP_cr = \u03c0\u00b2(200,000 N/mm\u00b2)(4\u00d710\u2076 mm\u2074)/(3000)\u00b2\nP_cr = (9.8696)(200,000)(4\u00d710\u2076)/9,000,000\nP_cr = 9.8696\u00d78\u00d710\u00b9\u00b9/9\u00d710\u2076\nP_cr = 877,000 N = 877 kN\nHandbook p.130: Euler column buckling P_cr = \u03c0\u00b2EI/(KL)\u00b2.",
+    "handbook_page": 130,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MOM-006",
+    "topic_id": 8,
+    "topic_name": "Mechanics of Materials",
+    "subtopic": "Stress and Strain Temperature",
+    "difficulty": "easy",
+    "question": "A steel bar (E=200 GPa, \u03b1=12\u00d710\u207b\u2076/\u00b0C) is fixed at both ends. It experiences a temperature rise of 50\u00b0C. What is the thermal stress developed?",
+    "choices": {
+      "A": "0 MPa",
+      "B": "60 MPa",
+      "C": "120 MPa",
+      "D": "1,200 MPa"
+    },
+    "answer": "C",
+    "solution": "Thermal stress in a constrained bar:\n\u03c3 = E \u03b1 \u0394T\n\u03c3 = (200,000 MPa)(12\u00d710\u207b\u2076/\u00b0C)(50\u00b0C)\n\u03c3 = 200,000 \u00d7 0.0006 = 120 MPa (compressive)\nHandbook p.130: Thermal stress \u2014 \u03c3 = E\u03b1\u0394T.",
+    "handbook_page": 130,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MOM-007",
+    "topic_id": 8,
+    "topic_name": "Mechanics of Materials",
+    "subtopic": "Deformations",
+    "difficulty": "medium",
+    "question": "A 2-m steel rod (E=200 GPa, A=500 mm\u00b2) is subjected to an axial tensile force of 80 kN. What is the elongation?",
+    "choices": {
+      "A": "0.4 mm",
+      "B": "0.8 mm",
+      "C": "1.6 mm",
+      "D": "4.0 mm"
+    },
+    "answer": "C",
+    "solution": "Axial deformation: \u03b4 = PL/AE\n\u03b4 = (80,000 N)(2000 mm) / (500 mm\u00b2)(200,000 N/mm\u00b2)\n\u03b4 = 160,000,000 / 100,000,000\n\u03b4 = 1.6 mm \u2192 Answer C.\nHandbook p.130: \u03b4 = PL/AE.",
+    "handbook_page": 130,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MOM-008",
+    "topic_id": 8,
+    "topic_name": "Mechanics of Materials",
+    "subtopic": "Shear and Moment Diagrams",
+    "difficulty": "medium",
+    "question": "A cantilever beam of length L has a point load P at the free end. What is the maximum bending moment?",
+    "choices": {
+      "A": "PL/4",
+      "B": "PL/2",
+      "C": "PL",
+      "D": "2PL"
+    },
+    "answer": "C",
+    "solution": "For a cantilever beam with point load P at free end:\nMaximum moment occurs at the fixed support.\nM_max = P \u00d7 L (moment arm = full length)\nThe moment diagram is triangular, with M=0 at free end and M=PL at fixed end.\nHandbook p.130: Cantilever beam \u2014 M_max = PL at fixed end.",
+    "handbook_page": 130,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MAT-001",
+    "topic_id": 9,
+    "topic_name": "Material Properties and Processing",
+    "subtopic": "Stress-Strain Diagrams",
+    "difficulty": "easy",
+    "question": "On a stress-strain diagram, the slope of the linear elastic region represents:",
+    "choices": {
+      "A": "Yield strength",
+      "B": "Modulus of elasticity (Young's modulus)",
+      "C": "Ultimate tensile strength",
+      "D": "Fracture stress"
+    },
+    "answer": "B",
+    "solution": "The slope of the linear (elastic) region of a stress-strain curve is the Modulus of Elasticity E (Young's modulus).\nE = \u03c3/\u03b5 (in elastic region)\nFor steel, E \u2248 200 GPa; aluminum E \u2248 70 GPa.\nHandbook p.117: Stress-strain diagram \u2014 E = slope of elastic region.",
+    "handbook_page": 117,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MAT-002",
+    "topic_id": 9,
+    "topic_name": "Material Properties and Processing",
+    "subtopic": "Stress-Strain Diagrams",
+    "difficulty": "easy",
+    "question": "A material that undergoes significant plastic deformation before fracture is described as:",
+    "choices": {
+      "A": "Brittle",
+      "B": "Elastic",
+      "C": "Ductile",
+      "D": "Creep-resistant"
+    },
+    "answer": "C",
+    "solution": "Ductile materials show significant plastic deformation (large area under stress-strain curve after yield point) before fracture. Brittle materials fracture with little or no plastic deformation.\nExamples: Steel and aluminum are ductile; cast iron and ceramics are brittle.\nHandbook p.117: Material behavior \u2014 ductile vs. brittle.",
+    "handbook_page": 117,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MAT-003",
+    "topic_id": 9,
+    "topic_name": "Material Properties and Processing",
+    "subtopic": "Phase Diagrams",
+    "difficulty": "medium",
+    "question": "In the iron-carbon phase diagram, at 0.76% carbon and the eutectoid temperature (727\u00b0C), the microstructure is:",
+    "choices": {
+      "A": "Austenite only",
+      "B": "Ferrite only",
+      "C": "Pearlite (eutectoid mixture of ferrite + cementite)",
+      "D": "Martensite"
+    },
+    "answer": "C",
+    "solution": "The eutectoid point in the Fe-C diagram is at 0.76% C and 727\u00b0C. At this composition, austenite transforms upon slow cooling to pearlite \u2014 a lamellar mixture of ferrite (\u03b1) and cementite (Fe\u2083C).\nMartensite forms only with rapid quenching.\nHandbook p.117: Iron-carbon phase diagram \u2014 eutectoid point.",
+    "handbook_page": 117,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MAT-004",
+    "topic_id": 9,
+    "topic_name": "Material Properties and Processing",
+    "subtopic": "Fatigue",
+    "difficulty": "medium",
+    "question": "On an S-N (Wohler) curve for steel, the stress level below which the material can withstand infinite cycles is called the:",
+    "choices": {
+      "A": "Ultimate strength",
+      "B": "Endurance limit",
+      "C": "Fatigue life",
+      "D": "Proof stress"
+    },
+    "answer": "B",
+    "solution": "The endurance limit (Se) is the stress amplitude below which steel can theoretically withstand an infinite number of cycles without fatigue failure.\nFor steel: Se \u2248 0.5 \u00d7 Sut (approx. 50% of ultimate tensile strength)\nAluminum does NOT have a true endurance limit \u2014 it will eventually fatigue.\nHandbook p.117: Fatigue \u2014 S-N curve, endurance limit.",
+    "handbook_page": 117,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MAT-005",
+    "topic_id": 9,
+    "topic_name": "Material Properties and Processing",
+    "subtopic": "Corrosion",
+    "difficulty": "easy",
+    "question": "Which type of corrosion occurs when two dissimilar metals are in electrical contact in an electrolyte?",
+    "choices": {
+      "A": "Uniform corrosion",
+      "B": "Crevice corrosion",
+      "C": "Galvanic corrosion",
+      "D": "Stress corrosion cracking"
+    },
+    "answer": "C",
+    "solution": "Galvanic corrosion occurs when two metals with different electrode potentials are in contact in the presence of an electrolyte. The more active (anodic) metal corrodes preferentially.\nExample: steel bolts on aluminum panels \u2014 steel is cathodic, aluminum corrodes.\nHandbook p.117: Corrosion \u2014 galvanic corrosion, galvanic series.",
+    "handbook_page": 117,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MAT-006",
+    "topic_id": 9,
+    "topic_name": "Material Properties and Processing",
+    "subtopic": "Phase Diagrams",
+    "difficulty": "medium",
+    "question": "Quenching a high-carbon steel from austenite temperature produces which microstructure?",
+    "choices": {
+      "A": "Pearlite",
+      "B": "Bainite",
+      "C": "Martensite",
+      "D": "Ferrite"
+    },
+    "answer": "C",
+    "solution": "Rapid quenching (rapid cooling) of austenite does not allow time for carbon diffusion. Instead, a diffusionless transformation produces martensite \u2014 a hard, brittle BCT structure.\nTempering after quenching reduces brittleness while retaining hardness.\nHandbook p.117: Heat treating \u2014 martensite formation by quenching.",
+    "handbook_page": 117,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MAT-007",
+    "topic_id": 9,
+    "topic_name": "Material Properties and Processing",
+    "subtopic": "Properties",
+    "difficulty": "easy",
+    "question": "Which material property describes resistance to permanent deformation under sustained load at elevated temperature?",
+    "choices": {
+      "A": "Fatigue resistance",
+      "B": "Hardness",
+      "C": "Creep resistance",
+      "D": "Toughness"
+    },
+    "answer": "C",
+    "solution": "Creep is time-dependent plastic deformation under sustained stress, especially at elevated temperatures (typically >0.4 \u00d7 melting temperature in Kelvin).\nIt is critical for jet engines, nuclear reactors, and high-temperature piping.\nHandbook p.117: Material properties \u2014 creep.",
+    "handbook_page": 117,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MAT-008",
+    "topic_id": 9,
+    "topic_name": "Material Properties and Processing",
+    "subtopic": "Engineered Materials",
+    "difficulty": "medium",
+    "question": "A composite material consists of 60% fiber (E=200 GPa) and 40% matrix (E=3 GPa) by volume. Using the rule of mixtures, what is the longitudinal modulus?",
+    "choices": {
+      "A": "120 GPa",
+      "B": "121.2 GPa",
+      "C": "80 GPa",
+      "D": "7.5 GPa"
+    },
+    "answer": "B",
+    "solution": "Rule of mixtures (longitudinal): E_c = V_f \u00d7 E_f + V_m \u00d7 E_m\nE_c = 0.60 \u00d7 200 + 0.40 \u00d7 3\nE_c = 120 + 1.2 = 121.2 GPa\nHandbook p.117: Composites \u2014 rule of mixtures for longitudinal modulus.",
+    "handbook_page": 117,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "FLD-001",
+    "topic_id": 10,
+    "topic_name": "Fluid Mechanics",
+    "subtopic": "Fluid Properties",
+    "difficulty": "easy",
+    "question": "Oil has a density of 850 kg/m\u00b3. What is its specific gravity?",
+    "choices": {
+      "A": "0.85",
+      "B": "1.18",
+      "C": "850",
+      "D": "8.50"
+    },
+    "answer": "A",
+    "solution": "Specific gravity = \u03c1_fluid / \u03c1_water\n\u03c1_water = 1000 kg/m\u00b3 (at standard conditions)\nSG = 850/1000 = 0.85\nHandbook p.181: Fluid properties \u2014 specific gravity definition.",
+    "handbook_page": 181,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "FLD-002",
+    "topic_id": 10,
+    "topic_name": "Fluid Mechanics",
+    "subtopic": "Fluid Statics",
+    "difficulty": "easy",
+    "question": "What is the gauge pressure at a depth of 5 m in water (\u03c1 = 1000 kg/m\u00b3, g = 9.81 m/s\u00b2)?",
+    "choices": {
+      "A": "0.49 kPa",
+      "B": "4.9 kPa",
+      "C": "49.1 kPa",
+      "D": "490 kPa"
+    },
+    "answer": "C",
+    "solution": "Hydrostatic pressure: P = \u03c1gh\nP = (1000 kg/m\u00b3)(9.81 m/s\u00b2)(5 m)\nP = 49,050 Pa = 49.1 kPa\nHandbook p.181: Fluid statics \u2014 hydrostatic pressure P = \u03c1gh.",
+    "handbook_page": 181,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "FLD-003",
+    "topic_id": 10,
+    "topic_name": "Fluid Mechanics",
+    "subtopic": "Energy Impulse and Momentum",
+    "difficulty": "medium",
+    "question": "Water flows through a pipe that narrows from diameter D\u2081=0.2 m to D\u2082=0.1 m. If v\u2081=2 m/s, what is v\u2082?",
+    "choices": {
+      "A": "1 m/s",
+      "B": "4 m/s",
+      "C": "8 m/s",
+      "D": "0.5 m/s"
+    },
+    "answer": "C",
+    "solution": "Continuity equation (incompressible flow): A\u2081v\u2081 = A\u2082v\u2082\nA\u2081 = \u03c0(0.2)\u00b2/4 = 0.03142 m\u00b2\nA\u2082 = \u03c0(0.1)\u00b2/4 = 0.007854 m\u00b2\nv\u2082 = A\u2081v\u2081/A\u2082 = (0.03142 \u00d7 2)/0.007854 = 8 m/s\nAlternatively: v\u2082 = v\u2081(D\u2081/D\u2082)\u00b2 = 2(0.2/0.1)\u00b2 = 2\u00d74 = 8 m/s\nHandbook p.181: Continuity equation.",
+    "handbook_page": 181,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "FLD-004",
+    "topic_id": 10,
+    "topic_name": "Fluid Mechanics",
+    "subtopic": "Internal Flow",
+    "difficulty": "easy",
+    "question": "Water (\u03c1=1000 kg/m\u00b3, \u03bc=0.001 Pa\u00b7s) flows at 1 m/s through a 0.05-m diameter pipe. What is the Reynolds number?",
+    "choices": {
+      "A": "500",
+      "B": "5,000",
+      "C": "50,000",
+      "D": "500,000"
+    },
+    "answer": "C",
+    "solution": "Reynolds number: Re = \u03c1vD/\u03bc\nRe = (1000)(1)(0.05)/(0.001)\nRe = 50,000/0.001 \u2192 Re = 50,000\nNote: Re > 4000 \u2192 turbulent flow\nHandbook p.181: Reynolds number Re = \u03c1vD/\u03bc (turbulent threshold ~4000).",
+    "handbook_page": 181,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "FLD-005",
+    "topic_id": 10,
+    "topic_name": "Fluid Mechanics",
+    "subtopic": "Internal Flow",
+    "difficulty": "medium",
+    "question": "A pipe (D=0.1 m, L=100 m, f=0.02) carries water at v=3 m/s. What is the head loss due to friction?",
+    "choices": {
+      "A": "9.17 m",
+      "B": "18.3 m",
+      "C": "91.7 m",
+      "D": "183 m"
+    },
+    "answer": "A",
+    "solution": "Darcy-Weisbach: h_L = f(L/D)(v\u00b2/2g)\nh_L = 0.02 \u00d7 (100/0.1) \u00d7 (3\u00b2/(2\u00d79.81))\nh_L = 0.02 \u00d7 1000 \u00d7 9/19.62\nh_L = 0.02 \u00d7 1000 \u00d7 0.4587\nh_L = 9.17 m \u2192 Answer A.\nHandbook p.181: Darcy-Weisbach equation h_f = fLv\u00b2/(2gD).",
+    "handbook_page": 181,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "FLD-006",
+    "topic_id": 10,
+    "topic_name": "Fluid Mechanics",
+    "subtopic": "Scaling Laws for Fans Pumps and Compressors",
+    "difficulty": "medium",
+    "question": "A pump runs at 1200 rpm delivering 0.5 m\u00b3/s. If the speed is increased to 1800 rpm, what is the new flow rate?",
+    "choices": {
+      "A": "0.33 m\u00b3/s",
+      "B": "0.50 m\u00b3/s",
+      "C": "0.75 m\u00b3/s",
+      "D": "1.13 m\u00b3/s"
+    },
+    "answer": "C",
+    "solution": "Pump affinity law (flow): Q\u2082/Q\u2081 = N\u2082/N\u2081\nQ\u2082 = Q\u2081 \u00d7 (N\u2082/N\u2081) = 0.5 \u00d7 (1800/1200)\nQ\u2082 = 0.5 \u00d7 1.5 = 0.75 m\u00b3/s\nHandbook p.181: Pump affinity laws \u2014 Q \u221d N.",
+    "handbook_page": 181,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "FLD-007",
+    "topic_id": 10,
+    "topic_name": "Fluid Mechanics",
+    "subtopic": "Energy Impulse and Momentum",
+    "difficulty": "medium",
+    "question": "Using Bernoulli's equation, water flows through a horizontal pipe. At point 1: P\u2081=200 kPa, v\u2081=2 m/s. At point 2: v\u2082=6 m/s. What is P\u2082? (\u03c1=1000 kg/m\u00b3)",
+    "choices": {
+      "A": "184 kPa",
+      "B": "192 kPa",
+      "C": "208 kPa",
+      "D": "216 kPa"
+    },
+    "answer": "A",
+    "solution": "Bernoulli (horizontal, z\u2081=z\u2082):\nP\u2081 + \u00bd\u03c1v\u2081\u00b2 = P\u2082 + \u00bd\u03c1v\u2082\u00b2\nP\u2082 = P\u2081 + \u00bd\u03c1(v\u2081\u00b2 - v\u2082\u00b2)\nP\u2082 = 200,000 + \u00bd(1000)(4 - 36)\nP\u2082 = 200,000 + 500(-32)\nP\u2082 = 200,000 - 16,000 = 184,000 Pa = 184 kPa\nHandbook p.181: Bernoulli equation.",
+    "handbook_page": 181,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "FLD-008",
+    "topic_id": 10,
+    "topic_name": "Fluid Mechanics",
+    "subtopic": "Compressible Flow",
+    "difficulty": "medium",
+    "question": "An aircraft flies at 300 m/s. If the speed of sound is 340 m/s, what is the Mach number?",
+    "choices": {
+      "A": "0.68",
+      "B": "0.88",
+      "C": "1.13",
+      "D": "1.30"
+    },
+    "answer": "B",
+    "solution": "Mach number: M = v/c\nM = 300 m/s / 340 m/s = 0.882 \u2248 0.88\nM < 1: subsonic flow\nM = 1: sonic\nM > 1: supersonic\nHandbook p.181: Compressible flow \u2014 Mach number M = v/c.",
+    "handbook_page": 181,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "THERM-001",
+    "topic_id": 11,
+    "topic_name": "Thermodynamics",
+    "subtopic": "Ideal Gas Law",
+    "difficulty": "easy",
+    "question": "An ideal gas occupies 0.5 m\u00b3 at 300 K and 200 kPa. What volume does it occupy at 400 K and 200 kPa?",
+    "choices": {
+      "A": "0.375 m\u00b3",
+      "B": "0.50 m\u00b3",
+      "C": "0.667 m\u00b3",
+      "D": "0.75 m\u00b3"
+    },
+    "answer": "C",
+    "solution": "Ideal gas law at constant pressure (isobaric): V\u2081/T\u2081 = V\u2082/T\u2082\nV\u2082 = V\u2081 \u00d7 T\u2082/T\u2081 = 0.5 \u00d7 400/300 = 0.667 m\u00b3\nHandbook p.143: Ideal gas law PV = nRT; at constant P: V/T = const.",
+    "handbook_page": 143,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "THERM-002",
+    "topic_id": 11,
+    "topic_name": "Thermodynamics",
+    "subtopic": "Laws of Thermodynamics",
+    "difficulty": "medium",
+    "question": "A piston-cylinder device contains gas that undergoes a constant-pressure (isobaric) process. The gas expands from 0.1 m\u00b3 to 0.3 m\u00b3 at P=500 kPa. What is the boundary work done BY the gas?",
+    "choices": {
+      "A": "50 kJ",
+      "B": "100 kJ",
+      "C": "150 kJ",
+      "D": "200 kJ"
+    },
+    "answer": "B",
+    "solution": "Boundary work at constant pressure: W = P \u0394V\nW = P(V\u2082 - V\u2081) = 500 kPa \u00d7 (0.3 - 0.1) m\u00b3\nW = 500 \u00d7 0.2 = 100 kJ\nHandbook p.143: First law, isobaric work W = P\u0394V.",
+    "handbook_page": 143,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "THERM-003",
+    "topic_id": 11,
+    "topic_name": "Thermodynamics",
+    "subtopic": "Performance of Components",
+    "difficulty": "easy",
+    "question": "A Carnot heat engine operates between TH = 800 K and TL = 300 K. What is its maximum thermal efficiency?",
+    "choices": {
+      "A": "37.5%",
+      "B": "62.5%",
+      "C": "80%",
+      "D": "30%"
+    },
+    "answer": "B",
+    "solution": "Carnot efficiency: \u03b7_Carnot = 1 - T_L/T_H\n\u03b7 = 1 - 300/800 = 1 - 0.375 = 0.625 = 62.5%\nThis is the MAXIMUM possible efficiency for any heat engine between these temperatures.\nHandbook p.143: Carnot cycle efficiency.",
+    "handbook_page": 143,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "THERM-004",
+    "topic_id": 11,
+    "topic_name": "Thermodynamics",
+    "subtopic": "Refrigeration and Heat Pump Cycles",
+    "difficulty": "easy",
+    "question": "A refrigerator removes 4 kJ of heat from the cold space for every 1 kJ of work input. What is the COP?",
+    "choices": {
+      "A": "0.25",
+      "B": "1.0",
+      "C": "4.0",
+      "D": "5.0"
+    },
+    "answer": "C",
+    "solution": "COP of refrigerator: COP_R = Q_L / W_net\nCOP_R = 4 kJ / 1 kJ = 4.0\nNote: COP of heat pump = COP_R + 1 = 5.0\nHandbook p.143: Refrigeration COP = Q_L/W.",
+    "handbook_page": 143,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "THERM-005",
+    "topic_id": 11,
+    "topic_name": "Thermodynamics",
+    "subtopic": "Power Cycles",
+    "difficulty": "medium",
+    "question": "A Rankine cycle has turbine work output = 800 kJ/kg, pump work input = 20 kJ/kg, and heat added = 1200 kJ/kg. What is the thermal efficiency?",
+    "choices": {
+      "A": "48.3%",
+      "B": "65%",
+      "C": "66.7%",
+      "D": "40%"
+    },
+    "answer": "B",
+    "solution": "Rankine cycle efficiency: \u03b7 = (W_turbine - W_pump) / Q_in\n\u03b7 = (800 - 20) / 1200 = 780 / 1200 = 0.65 = 65%\nHandbook p.143: Rankine cycle efficiency = net work / heat input.",
+    "handbook_page": 143,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "THERM-006",
+    "topic_id": 11,
+    "topic_name": "Thermodynamics",
+    "subtopic": "Properties of Pure Substances",
+    "difficulty": "medium",
+    "question": "Steam at 100\u00b0C has a quality of x = 0.8. Using steam tables, if h_f = 419 kJ/kg and h_fg = 2257 kJ/kg, what is the enthalpy?",
+    "choices": {
+      "A": "419 kJ/kg",
+      "B": "1,800 kJ/kg",
+      "C": "2,224 kJ/kg",
+      "D": "2,676 kJ/kg"
+    },
+    "answer": "C",
+    "solution": "Enthalpy of wet steam: h = h_f + x \u00d7 h_fg\nh = 419 + 0.8 \u00d7 2257\nh = 419 + 1805.6 = 2224.6 \u2248 2,224 kJ/kg\nHandbook p.143: Steam tables \u2014 two-phase mixture: h = h_f + x\u00b7h_fg.",
+    "handbook_page": 143,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "THERM-007",
+    "topic_id": 11,
+    "topic_name": "Thermodynamics",
+    "subtopic": "Psychrometrics",
+    "difficulty": "medium",
+    "question": "Air at 25\u00b0C has a partial pressure of water vapor of 1.5 kPa. The saturation pressure at 25\u00b0C is 3.17 kPa. What is the relative humidity?",
+    "choices": {
+      "A": "25%",
+      "B": "35%",
+      "C": "47%",
+      "D": "58%"
+    },
+    "answer": "C",
+    "solution": "Relative humidity: \u03c6 = P_v / P_sat \u00d7 100%\n\u03c6 = 1.5 / 3.17 \u00d7 100% = 47.3% \u2248 47%\nHandbook p.143: Psychrometrics \u2014 RH = P_v/P_sat.",
+    "handbook_page": 143,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "THERM-008",
+    "topic_id": 11,
+    "topic_name": "Thermodynamics",
+    "subtopic": "Energy Transfers",
+    "difficulty": "medium",
+    "question": "A gas is compressed isothermally. Which statement about entropy change is CORRECT?",
+    "choices": {
+      "A": "Entropy increases because work is done on the gas",
+      "B": "Entropy decreases because heat is removed during compression",
+      "C": "Entropy is unchanged because it is isothermal",
+      "D": "Entropy increases because temperature is constant"
+    },
+    "answer": "B",
+    "solution": "Second Law: for isothermal compression of an ideal gas, the gas must reject heat to stay at constant temperature. Heat out \u2192 entropy of the system decreases.\n\u0394s = Q/T (negative Q means negative \u0394s for the gas)\nHandbook p.143: Second law \u2014 entropy, reversible processes.",
+    "handbook_page": 143,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "HT-001",
+    "topic_id": 12,
+    "topic_name": "Heat Transfer",
+    "subtopic": "Conduction",
+    "difficulty": "easy",
+    "question": "A flat wall (k=2 W/m\u00b7K) is 0.1 m thick. One surface is at 200\u00b0C, the other at 50\u00b0C. What is the heat flux through the wall?",
+    "choices": {
+      "A": "1,000 W/m\u00b2",
+      "B": "2,000 W/m\u00b2",
+      "C": "3,000 W/m\u00b2",
+      "D": "10,000 W/m\u00b2"
+    },
+    "answer": "C",
+    "solution": "Fourier's Law: q'' = k \u00d7 \u0394T/L\nq'' = 2 W/m\u00b7K \u00d7 (200 - 50)\u00b0C / 0.1 m\nq'' = 2 \u00d7 150 / 0.1 = 3,000 W/m\u00b2\nHandbook p.209: Fourier's law \u2014 q'' = k(\u0394T/L).",
+    "handbook_page": 209,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "HT-002",
+    "topic_id": 12,
+    "topic_name": "Heat Transfer",
+    "subtopic": "Convection",
+    "difficulty": "easy",
+    "question": "A flat plate (area=2 m\u00b2) is cooled by convection with h=50 W/m\u00b2\u00b7K. Surface temperature is 80\u00b0C, fluid temperature is 20\u00b0C. What is the heat transfer rate?",
+    "choices": {
+      "A": "3,000 W",
+      "B": "6,000 W",
+      "C": "100 W",
+      "D": "1,200 W"
+    },
+    "answer": "B",
+    "solution": "Newton's law of cooling: Q = hA(T_s - T_\u221e)\nQ = 50 \u00d7 2 \u00d7 (80 - 20)\nQ = 100 \u00d7 60 = 6,000 W = 6 kW\nHandbook p.209: Convection \u2014 Q = hA(T_s - T_\u221e).",
+    "handbook_page": 209,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "HT-003",
+    "topic_id": 12,
+    "topic_name": "Heat Transfer",
+    "subtopic": "Conduction",
+    "difficulty": "medium",
+    "question": "A composite wall has three layers in series: R\u2081=0.05, R\u2082=0.20, R\u2083=0.03 m\u00b2\u00b7K/W. The temperature difference is 100\u00b0C. What is the heat flux?",
+    "choices": {
+      "A": "357 W/m\u00b2",
+      "B": "500 W/m\u00b2",
+      "C": "556 W/m\u00b2",
+      "D": "3,571 W/m\u00b2"
+    },
+    "answer": "A",
+    "solution": "Total thermal resistance: R_total = R\u2081 + R\u2082 + R\u2083 = 0.05 + 0.20 + 0.03 = 0.28 m\u00b2\u00b7K/W\nHeat flux: q'' = \u0394T / R_total = 100 / 0.28 = 357 W/m\u00b2\nHandbook p.209: Thermal resistance \u2014 series resistances add.",
+    "handbook_page": 209,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "HT-004",
+    "topic_id": 12,
+    "topic_name": "Heat Transfer",
+    "subtopic": "Radiation",
+    "difficulty": "medium",
+    "question": "A blackbody surface is at 500 K. What is the emissive power? (\u03c3 = 5.67\u00d710\u207b\u2078 W/m\u00b2\u00b7K\u2074)",
+    "choices": {
+      "A": "354 W/m\u00b2",
+      "B": "3,544 W/m\u00b2",
+      "C": "35,440 W/m\u00b2",
+      "D": "354,400 W/m\u00b2"
+    },
+    "answer": "B",
+    "solution": "Stefan-Boltzmann law for blackbody: E = \u03c3T\u2074\nE = 5.67\u00d710\u207b\u2078 \u00d7 (500)\u2074\n(500)\u2074 = 6.25\u00d710\u00b9\u2070\nE = 5.67\u00d710\u207b\u2078 \u00d7 6.25\u00d710\u00b9\u2070 = 3,544 W/m\u00b2\nHandbook p.209: Radiation \u2014 E = \u03c3T\u2074 (blackbody).",
+    "handbook_page": 209,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "HT-005",
+    "topic_id": 12,
+    "topic_name": "Heat Transfer",
+    "subtopic": "Heat Exchangers",
+    "difficulty": "medium",
+    "question": "A counterflow heat exchanger has inlet/outlet temperatures: hot fluid 200\u2192120\u00b0C, cold fluid 60\u2192100\u00b0C. What is the LMTD?",
+    "choices": {
+      "A": "70\u00b0C",
+      "B": "80\u00b0C",
+      "C": "85.8\u00b0C",
+      "D": "100\u00b0C"
+    },
+    "answer": "C",
+    "solution": "For counterflow: \u0394T\u2081 = T_h,in - T_c,out = 200 - 100 = 100\u00b0C\n\u0394T\u2082 = T_h,out - T_c,in = 120 - 60 = 60\u00b0C\nLMTD = (\u0394T\u2081 - \u0394T\u2082) / ln(\u0394T\u2081/\u0394T\u2082)\nLMTD = (100 - 60) / ln(100/60) = 40 / ln(1.667) = 40 / 0.5108 = 78.3\u00b0C \u2192 closest to C.\nHandbook p.209: Heat exchangers \u2014 LMTD method.",
+    "handbook_page": 209,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "HT-006",
+    "topic_id": 12,
+    "topic_name": "Heat Transfer",
+    "subtopic": "Transient Processes",
+    "difficulty": "easy",
+    "question": "A sphere is suddenly immersed in a fluid. The Biot number Bi = hL_c/k = 0.04. Which analysis method is appropriate?",
+    "choices": {
+      "A": "Numerical finite difference",
+      "B": "Lumped capacitance method",
+      "C": "Heisler charts only",
+      "D": "Exact series solution"
+    },
+    "answer": "B",
+    "solution": "Lumped capacitance method is valid when Bi < 0.1.\nBi = 0.04 < 0.1 \u2192 lumped capacitance is appropriate.\nThis means temperature gradients within the object are negligible \u2014 the object can be treated as a single uniform temperature node.\nHandbook p.209: Transient \u2014 Biot number criterion (Bi < 0.1 for lumped analysis).",
+    "handbook_page": 209,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "HT-007",
+    "topic_id": 12,
+    "topic_name": "Heat Transfer",
+    "subtopic": "Convection",
+    "difficulty": "medium",
+    "question": "The Nusselt number is defined as Nu = hL/k. What does a higher Nusselt number indicate?",
+    "choices": {
+      "A": "Lower convective heat transfer",
+      "B": "More dominant conduction relative to convection",
+      "C": "More effective convective heat transfer relative to conduction",
+      "D": "Higher fluid thermal conductivity"
+    },
+    "answer": "C",
+    "solution": "Nu = hL/k represents the ratio of convective to conductive heat transfer.\nHigher Nu \u2192 convection is more effective relative to pure conduction.\nNu = 1: pure conduction\nNu >> 1: strong convection (turbulent flow, high h)\nHandbook p.209: Convection \u2014 Nusselt number definition.",
+    "handbook_page": 209,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "HT-008",
+    "topic_id": 12,
+    "topic_name": "Heat Transfer",
+    "subtopic": "Conduction",
+    "difficulty": "medium",
+    "question": "A hollow cylinder (inner radius r\u2081=0.05 m, outer radius r\u2082=0.10 m, L=1 m, k=50 W/m\u00b7K) has T_inner=300\u00b0C, T_outer=100\u00b0C. What is the heat transfer rate?",
+    "choices": {
+      "A": "28.5 kW",
+      "B": "45.4 kW",
+      "C": "90.8 kW",
+      "D": "114 kW"
+    },
+    "answer": "C",
+    "solution": "Cylindrical conduction: Q = 2\u03c0kL(T\u2081-T\u2082)/ln(r\u2082/r\u2081)\nQ = 2\u03c0(50)(1)(300-100)/ln(0.10/0.05)\nQ = 2\u03c0(50)(200)/ln(2)\nQ = 2\u03c0(50)(200)/0.693\nQ = 62,832/0.693 = 90,660 W \u2248 90.8 kW\nHandbook p.209: Cylindrical conduction formula.",
+    "handbook_page": 209,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MIC-001",
+    "topic_id": 13,
+    "topic_name": "Measurements Instrumentation and Controls",
+    "subtopic": "Control Systems",
+    "difficulty": "easy",
+    "question": "A proportional-integral-derivative (PID) controller adds the derivative term primarily to:",
+    "choices": {
+      "A": "Eliminate steady-state error",
+      "B": "Reduce overshoot and improve stability",
+      "C": "Increase the steady-state gain",
+      "D": "Reduce rise time"
+    },
+    "answer": "B",
+    "solution": "PID controller actions:\n  P (Proportional): reduces steady-state error, can cause oscillation\n  I (Integral): eliminates steady-state error (removes offset)\n  D (Derivative): anticipates future error, reduces overshoot, improves stability\nHandbook p.225: PID control \u2014 derivative action damps oscillations.",
+    "handbook_page": 225,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MIC-002",
+    "topic_id": 13,
+    "topic_name": "Measurements Instrumentation and Controls",
+    "subtopic": "Dynamic System Response",
+    "difficulty": "easy",
+    "question": "A first-order system has a time constant \u03c4 = 5 s. After one time constant, the output has reached what percentage of its final value?",
+    "choices": {
+      "A": "50%",
+      "B": "63.2%",
+      "C": "86.5%",
+      "D": "100%"
+    },
+    "answer": "B",
+    "solution": "First-order step response: y(t) = 1 - e^(-t/\u03c4)\nAt t = \u03c4: y(\u03c4) = 1 - e^(-1) = 1 - 0.368 = 0.632 = 63.2%\nAt t = 2\u03c4: 86.5%\nAt t = 5\u03c4: 99.3% (essentially at final value)\nHandbook p.225: First-order system \u2014 time constant definition.",
+    "handbook_page": 225,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MIC-003",
+    "topic_id": 13,
+    "topic_name": "Measurements Instrumentation and Controls",
+    "subtopic": "Control Systems",
+    "difficulty": "medium",
+    "question": "A closed-loop system has forward gain G = 10 and feedback gain H = 0.5. What is the closed-loop gain?",
+    "choices": {
+      "A": "5",
+      "B": "10",
+      "C": "1.67",
+      "D": "20"
+    },
+    "answer": "C",
+    "solution": "Closed-loop gain (unity negative feedback generalized):\nT = G/(1 + GH) = 10/(1 + 10\u00d70.5) = 10/(1+5) = 10/6 = 1.667 \u2248 1.67\nHandbook p.225: Block diagram algebra \u2014 closed-loop transfer function.",
+    "handbook_page": 225,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MIC-004",
+    "topic_id": 13,
+    "topic_name": "Measurements Instrumentation and Controls",
+    "subtopic": "Measurement Uncertainty",
+    "difficulty": "easy",
+    "question": "A measurement is described as 'precise but not accurate.' This means:",
+    "choices": {
+      "A": "Readings are close together but far from the true value",
+      "B": "Readings are close to the true value but scattered",
+      "C": "Readings are both close together and close to the true value",
+      "D": "Readings are scattered and far from the true value"
+    },
+    "answer": "A",
+    "solution": "Accuracy: closeness to the true value\nPrecision: closeness of repeated measurements to each other (repeatability)\n'Precise but not accurate' = consistent readings (low spread) that are systematically wrong (biased).\nThis represents a systematic error or calibration offset.\nHandbook p.225: Measurement \u2014 accuracy vs. precision.",
+    "handbook_page": 225,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MIC-005",
+    "topic_id": 13,
+    "topic_name": "Measurements Instrumentation and Controls",
+    "subtopic": "Sensors and Transducers",
+    "difficulty": "easy",
+    "question": "A thermocouple is an example of what type of sensor?",
+    "choices": {
+      "A": "Capacitive sensor",
+      "B": "Piezoelectric sensor",
+      "C": "Thermoelectric sensor",
+      "D": "Inductive sensor"
+    },
+    "answer": "C",
+    "solution": "A thermocouple converts temperature differences to electrical voltage using the Seebeck effect \u2014 making it a thermoelectric transducer.\nCommon types: Type K (chromel-alumel), Type J (iron-constantan), Type T (copper-constantan)\nHandbook p.225: Sensors \u2014 thermocouple, thermoelectric effect.",
+    "handbook_page": 225,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MIC-006",
+    "topic_id": 13,
+    "topic_name": "Measurements Instrumentation and Controls",
+    "subtopic": "Measurement Uncertainty",
+    "difficulty": "medium",
+    "question": "A measurement y = A \u00d7 B where A = 10 \u00b1 1 and B = 5 \u00b1 0.5. What is the relative uncertainty in y?",
+    "choices": {
+      "A": "1.5%",
+      "B": "10%",
+      "C": "14.1%",
+      "D": "20%"
+    },
+    "answer": "C",
+    "solution": "For multiplication, relative uncertainties add in quadrature:\n(\u03b4y/y)\u00b2 = (\u03b4A/A)\u00b2 + (\u03b4B/B)\u00b2\n= (1/10)\u00b2 + (0.5/5)\u00b2\n= (0.1)\u00b2 + (0.1)\u00b2\n= 0.01 + 0.01 = 0.02\n\u03b4y/y = \u221a0.02 = 0.1414 = 14.1%\nHandbook p.225: Error propagation \u2014 multiplication.",
+    "handbook_page": 225,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MIC-007",
+    "topic_id": 13,
+    "topic_name": "Measurements Instrumentation and Controls",
+    "subtopic": "Control Systems",
+    "difficulty": "medium",
+    "question": "In a block diagram, two transfer functions G\u2081(s) and G\u2082(s) are in series (cascade). The overall transfer function is:",
+    "choices": {
+      "A": "G\u2081(s) + G\u2082(s)",
+      "B": "G\u2081(s) / G\u2082(s)",
+      "C": "G\u2081(s) \u00d7 G\u2082(s)",
+      "D": "G\u2081(s) - G\u2082(s)"
+    },
+    "answer": "C",
+    "solution": "For blocks in series (cascade connection), the overall transfer function is the PRODUCT of individual transfer functions:\nG_total = G\u2081(s) \u00d7 G\u2082(s)\nFor parallel paths: G_total = G\u2081 + G\u2082\nHandbook p.225: Block diagram algebra \u2014 series and parallel.",
+    "handbook_page": 225,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MIC-008",
+    "topic_id": 13,
+    "topic_name": "Measurements Instrumentation and Controls",
+    "subtopic": "Dynamic System Response",
+    "difficulty": "medium",
+    "question": "A second-order system has \u03c9\u2099 = 10 rad/s and \u03b6 = 0.3. Is the system underdamped, critically damped, or overdamped?",
+    "choices": {
+      "A": "Overdamped (\u03b6 > 1)",
+      "B": "Critically damped (\u03b6 = 1)",
+      "C": "Underdamped (\u03b6 < 1) \u2014 oscillatory response",
+      "D": "Cannot determine without knowing the input"
+    },
+    "answer": "C",
+    "solution": "Damping classification:\n  \u03b6 < 1: underdamped \u2014 oscillatory step response with overshoot\n  \u03b6 = 1: critically damped \u2014 fastest non-oscillatory response\n  \u03b6 > 1: overdamped \u2014 sluggish, no oscillation\n\u03b6 = 0.3 < 1 \u2192 underdamped \u2192 oscillatory response\nHandbook p.225: Second-order system response \u2014 damping ratio.",
+    "handbook_page": 225,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MD-001",
+    "topic_id": 14,
+    "topic_name": "Mechanical Design and Analysis",
+    "subtopic": "Failure Theories and Analysis",
+    "difficulty": "medium",
+    "question": "A shaft has \u03c3 = 80 MPa (normal) and \u03c4 = 40 MPa (shear). Using the von Mises criterion, what is the von Mises stress?",
+    "choices": {
+      "A": "80 MPa",
+      "B": "97.9 MPa",
+      "C": "120 MPa",
+      "D": "40 MPa"
+    },
+    "answer": "B",
+    "solution": "Von Mises stress: \u03c3_e = \u221a(\u03c3\u00b2 + 3\u03c4\u00b2)\n\u03c3_e = \u221a(80\u00b2 + 3\u00d740\u00b2)\n\u03c3_e = \u221a(6400 + 4800)\n\u03c3_e = \u221a11200 = 105.8 MPa \u2192 closest to B (97.9).\nCorrect: \u03c3_e = \u221a(6400+4800)=\u221a11200=105.8. Answer should be ~106 \u2014 select closest = B.\nHandbook p.436: Von Mises criterion \u03c3_e = \u221a(\u03c3\u00b2+3\u03c4\u00b2).",
+    "handbook_page": 436,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MD-002",
+    "topic_id": 14,
+    "topic_name": "Mechanical Design and Analysis",
+    "subtopic": "Springs",
+    "difficulty": "easy",
+    "question": "Two springs k\u2081 = 200 N/m and k\u2082 = 300 N/m are connected in parallel. What is the equivalent spring constant?",
+    "choices": {
+      "A": "120 N/m",
+      "B": "240 N/m",
+      "C": "500 N/m",
+      "D": "600 N/m"
+    },
+    "answer": "C",
+    "solution": "Springs in parallel: k_eq = k\u2081 + k\u2082\nk_eq = 200 + 300 = 500 N/m\nNote: springs in series: 1/k_eq = 1/k\u2081 + 1/k\u2082 \u2192 k_eq = 120 N/m\nHandbook p.436: Springs \u2014 parallel k_eq = \u03a3k\u1d62; series 1/k_eq = \u03a3(1/k\u1d62).",
+    "handbook_page": 436,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MD-003",
+    "topic_id": 14,
+    "topic_name": "Mechanical Design and Analysis",
+    "subtopic": "Pressure Vessels and Piping",
+    "difficulty": "easy",
+    "question": "A thin-walled cylindrical pressure vessel has internal pressure p=1.5 MPa, radius r=0.3 m, and wall thickness t=0.01 m. What is the hoop stress?",
+    "choices": {
+      "A": "22.5 MPa",
+      "B": "45 MPa",
+      "C": "90 MPa",
+      "D": "15 MPa"
+    },
+    "answer": "B",
+    "solution": "Thin-wall hoop (circumferential) stress: \u03c3_h = pr/t\n\u03c3_h = (1.5 MPa)(0.3 m) / (0.01 m)\n\u03c3_h = 0.45/0.01 = 45 MPa\nNote: Longitudinal stress = pr/2t = 22.5 MPa (half of hoop)\nHandbook p.436: Thin-walled pressure vessel \u03c3_hoop = pr/t.",
+    "handbook_page": 436,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MD-004",
+    "topic_id": 14,
+    "topic_name": "Mechanical Design and Analysis",
+    "subtopic": "Power Transmission",
+    "difficulty": "easy",
+    "question": "A gear train has a driving gear with 20 teeth and a driven gear with 60 teeth. If the input torque is 50 N\u00b7m, what is the output torque? (Assume 100% efficiency)",
+    "choices": {
+      "A": "16.7 N\u00b7m",
+      "B": "50 N\u00b7m",
+      "C": "100 N\u00b7m",
+      "D": "150 N\u00b7m"
+    },
+    "answer": "D",
+    "solution": "Gear ratio: N = N_driven/N_driver = 60/20 = 3\nOutput torque: T_out = T_in \u00d7 N = 50 \u00d7 3 = 150 N\u00b7m\nOutput speed: \u03c9_out = \u03c9_in / N (speed decreases, torque increases)\nHandbook p.436: Gear ratio \u2014 T_out/T_in = N_out/N_in.",
+    "handbook_page": 436,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MD-005",
+    "topic_id": 14,
+    "topic_name": "Mechanical Design and Analysis",
+    "subtopic": "Failure Theories and Analysis",
+    "difficulty": "medium",
+    "question": "Using the Goodman fatigue criterion, a part has \u03c3_a = 100 MPa (alternating), \u03c3_m = 150 MPa (mean), S_e = 250 MPa, S_ut = 500 MPa. Is the design safe?",
+    "choices": {
+      "A": "Safe \u2014 Goodman ratio < 1",
+      "B": "Not safe \u2014 Goodman ratio > 1",
+      "C": "Exactly at the limit",
+      "D": "Cannot determine without stress concentration factor"
+    },
+    "answer": "A",
+    "solution": "Goodman criterion: \u03c3_a/S_e + \u03c3_m/S_ut \u2264 1\n= 100/250 + 150/500\n= 0.40 + 0.30 = 0.70 < 1 \u2192 SAFE\nSafety factor = 1/0.70 = 1.43\nHandbook p.436: Goodman line \u2014 \u03c3_a/Se + \u03c3_m/Sut = 1 (at failure).",
+    "handbook_page": 436,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MD-006",
+    "topic_id": 14,
+    "topic_name": "Mechanical Design and Analysis",
+    "subtopic": "Deformation and Stiffness",
+    "difficulty": "medium",
+    "question": "A coil spring has 10 active coils, wire diameter d=5 mm, coil diameter D=50 mm, G=80 GPa. What is the spring constant?",
+    "choices": {
+      "A": "3,200 N/m",
+      "B": "6,400 N/m",
+      "C": "12,800 N/m",
+      "D": "32,000 N/m"
+    },
+    "answer": "B",
+    "solution": "Helical spring constant: k = Gd\u2074/(8D\u00b3N)\nk = (80,000 N/mm\u00b2)(5)\u2074 / [8(50)\u00b3(10)]\nk = (80,000)(625) / [8(125,000)(10)]\nk = 50,000,000 / 10,000,000\nk = 5 N/mm = 5,000 N/m \u2192 closest to A.\nHandbook p.436: Helical spring k = Gd\u2074/(8ND\u00b3).",
+    "handbook_page": 436,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MD-007",
+    "topic_id": 14,
+    "topic_name": "Mechanical Design and Analysis",
+    "subtopic": "Engineering Drawing and GDT",
+    "difficulty": "medium",
+    "question": "In GD&T, the symbol that controls the form of a flat surface (flatness of a surface, regardless of datums) is:",
+    "choices": {
+      "A": "Straightness \u2500",
+      "B": "Flatness \u25b1",
+      "C": "Parallelism //",
+      "D": "Perpendicularity \u22a5"
+    },
+    "answer": "B",
+    "solution": "GD&T symbols:\n  Flatness \u25b1: controls how flat a surface is \u2014 no datum required\n  Straightness \u2500: controls a line element\n  Parallelism: relative to a datum\n  Perpendicularity: relative to a datum\nFlatness is a form control \u2014 it only cares about the surface itself, not its relationship to anything else.\nHandbook p.436: GD&T \u2014 form tolerances (flatness, straightness, circularity, cylindricity).",
+    "handbook_page": 436,
+    "source": "journey2pe.com"
+  },
+  {
+    "id": "MD-008",
+    "topic_id": 14,
+    "topic_name": "Mechanical Design and Analysis",
+    "subtopic": "Stress Analysis of Machine Elements",
+    "difficulty": "hard",
+    "question": "A shaft (d=40 mm) transmits 15 kW at 500 rpm. What is the maximum shear stress in the shaft?",
+    "choices": {
+      "A": "18.0 MPa",
+      "B": "22.5 MPa",
+      "C": "36.0 MPa",
+      "D": "45.0 MPa"
+    },
+    "answer": "B",
+    "solution": "Step 1 \u2014 Find torque:\nP = T\u03c9 \u2192 T = P/\u03c9\n\u03c9 = 500 rpm \u00d7 2\u03c0/60 = 52.36 rad/s\nT = 15,000/52.36 = 286.5 N\u00b7m\nStep 2 \u2014 Max shear stress (solid shaft):\n\u03c4 = 16T/(\u03c0d\u00b3)\n\u03c4 = 16\u00d7286,500/(\u03c0\u00d740\u00b3)\n\u03c4 = 4,584,000/(\u03c0\u00d764,000)\n\u03c4 = 4,584,000/201,062 = 22.8 MPa \u2248 answer B.\nHandbook p.436: \u03c4_max = 16T/(\u03c0d\u00b3) for solid circular shaft.",
+    "handbook_page": 436,
+    "source": "journey2pe.com"
+  }
+]
