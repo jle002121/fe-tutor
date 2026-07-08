@@ -123,8 +123,33 @@
     .concept-body p { margin: 0 0 0.45em; }
     .concept-body p:last-child { margin-bottom: 0; }
     .concept-body .math-block { text-align: center; margin: 14px 0; overflow-x: auto; }
-    .concept-body .katex-display { margin: 0.3em 0 !important; }
-    .concept-body .katex { font-size: 1.08em; }
+    /* Mini math renderer (offline, no CDN) */
+    .mm { font-family: "STIX Two Math", "Cambria Math", Georgia, serif; }
+    .math-block .mm { font-size: 1.12em; }
+    .mm i { font-family: inherit; }
+    .mfrac { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; margin: 0 2px; }
+    .mfrac .mnum { display: block; border-bottom: 1px solid currentColor; padding: 0 4px; line-height: 1.25; }
+    .mfrac .mden { display: block; padding: 0 4px; line-height: 1.25; }
+    .msqrt { white-space: nowrap; }
+    .msqrt .msqrt-arg { border-top: 1px solid currentColor; padding: 0 2px; }
+    .mtext, .mfn { font-style: normal; font-family: inherit; }
+    .mbar { text-decoration: overline; }
+    .mmat { display: inline-table; vertical-align: middle; margin: 0 2px; }
+    .mmat td { padding: 1px 7px; text-align: center; }
+    .mparen { font-size: 1.6em; vertical-align: middle; font-weight: 300; }
+    .date-input { padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 13px; color: var(--text); background: #fff; }
+
+    /* Responsive: sidebar collapses to a top bar on narrow screens */
+    @media (max-width: 760px) {
+      #app { flex-direction: column; }
+      #sidebar { width: 100%; min-width: 0; flex-direction: row; align-items: center; gap: 10px; padding: 8px 12px; overflow-x: auto; overflow-y: hidden; flex-shrink: 0; }
+      .sidebar-logo { padding: 0; flex-shrink: 0; display: flex; align-items: center; gap: 6px; }
+      .sidebar-logo h1 { font-size: 12px; line-height: 1.2; }
+      .sidebar-countdown, .sidebar-week, .sidebar-tip { display: none; }
+      .sidebar-nav { display: flex; flex-direction: row; gap: 2px; flex: 1; padding: 0; margin: 0; }
+      .nav-item { white-space: nowrap; padding: 8px 10px; font-size: 12px; }
+      #content { padding: 16px; }
+    }
 
     /* Quiz */
     .quiz-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
@@ -217,7 +242,6 @@
     .accuracy-label { font-size: 12px; color: var(--text-muted); width: 120px; flex-shrink: 0; }
     .accuracy-num { font-size: 12px; font-weight: 700; color: var(--text); width: 36px; text-align: right; flex-shrink: 0; }
   </style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 </head>
 <body>
 <div id="app">
@@ -229,7 +253,7 @@
     <div class="sidebar-countdown">
       <div class="countdown-days" id="days-left">--</div>
       <div class="countdown-label">days to exam</div>
-      <div class="countdown-date">Aug 25, 2026</div>
+      <div class="countdown-date" id="exam-date-label">Aug 25, 2026</div>
     </div>
     <div class="sidebar-week">
       <div class="week-badge" id="sidebar-week-badge">Week 1 of 11</div>
@@ -268,7 +292,6 @@
   <div class="modal-card" id="modal-card"></div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
 <script>
 'use strict';
 
@@ -3097,13 +3120,19 @@ function getConfig() {
   const d = loadData();
   if (!d.config) {
     const cfg = {
-      study_start: new Date().toISOString().slice(0,10),
+      study_start: new Date().toLocaleDateString('en-CA'),
+      exam_date: '2026-08-25',
+      weekly_hour_target: 13,
       show_hard: false,
       tip_index: 0
     };
     saveData(cfg, d.progress);
     return cfg;
   }
+  let dirty = false;
+  if (!d.config.exam_date) { d.config.exam_date = '2026-08-25'; dirty = true; }
+  if (!d.config.weekly_hour_target) { d.config.weekly_hour_target = 13; dirty = true; }
+  if (dirty) saveData(d.config, d.progress);
   return d.config;
 }
 
@@ -3143,6 +3172,31 @@ function recordResult(topicId, correct, timeSec) {
   saveProgress(prg);
 }
 
+function getWrongIds() { return getProgress().wrong_ids || []; }
+
+function updateWrongIds(id, correct) {
+  const prg = getProgress();
+  let w = prg.wrong_ids || [];
+  if (correct) w = w.filter(x => x !== id);
+  else if (!w.includes(id)) w.push(id);
+  prg.wrong_ids = w;
+  saveProgress(prg);
+}
+
+function recordSession(label, correct, total) {
+  const prg = getProgress();
+  if (!prg.sessions) prg.sessions = [];
+  prg.sessions.unshift({ date: new Date().toLocaleDateString('en-CA'), label, correct, total });
+  prg.sessions = prg.sessions.slice(0, 20);
+  saveProgress(prg);
+}
+
+function currentQuizLabel() {
+  if (state.view === 'review') return 'Review Missed';
+  const t = TOPICS.find(x => x.id === state.topicId);
+  return t ? t.name : 'Quiz';
+}
+
 function getStats(topicId) {
   const prg = getProgress();
   return prg[`stats_${topicId}`] || { correct: 0, total: 0, totalTime: 0 };
@@ -3163,10 +3217,27 @@ function getAllStats() {
 // ─── UTILITIES ───────────────────────────────────────────────────────────────
 
 function daysToExam() {
-  const exam = new Date('2026-08-25');
+  const exam = new Date(getConfig().exam_date + 'T00:00:00');
   const now = new Date();
   now.setHours(0,0,0,0);
   return Math.max(0, Math.round((exam - now) / 86400000));
+}
+
+function fmtExamDate(style) {
+  return new Date(getConfig().exam_date + 'T12:00:00')
+    .toLocaleDateString('en-US', { month: style === 'short' ? 'short' : 'long', day: 'numeric', year: 'numeric' });
+}
+
+function getWeekHours(w) {
+  const prg = getProgress();
+  return prg[`hours_week_${w}`] || 0;
+}
+
+function addWeekHours(hrs) {
+  const prg = getProgress();
+  const key = `hours_week_${currentWeek()}`;
+  prg[key] = Math.round(((prg[key] || 0) + hrs) * 100) / 100;
+  saveProgress(prg);
 }
 
 function currentWeek() {
@@ -3187,6 +3258,15 @@ function formatTime(sec) {
   const m = Math.floor(sec / 60);
   const s = sec % 60;
   return `${m}:${s.toString().padStart(2,'0')}`;
+}
+
+function effectiveStatus(t) {
+  const s = getStats(t.id);
+  if (s.total > 0) {
+    const a = pct(s.correct, s.total);
+    return a >= 70 ? 'strong' : a >= 50 ? 'moderate' : 'weak';
+  }
+  return t.baseline;
 }
 
 function baselineBadge(b) {
@@ -3214,9 +3294,78 @@ function h(str) {
     .replace(/"/g,'&quot;');
 }
 
+// Compact offline LaTeX-subset renderer — covers every construct used in TOPICS
+// content (fractions, roots, greek, sub/superscripts, pmatrix, operators).
+function miniLatex(src) {
+  var GREEK = {alpha:'α',beta:'β',gamma:'γ',Gamma:'Γ',delta:'δ',Delta:'Δ',epsilon:'ε',varepsilon:'ε',zeta:'ζ',eta:'η',theta:'θ',Theta:'Θ',kappa:'κ',lambda:'λ',Lambda:'Λ',mu:'μ',nu:'ν',xi:'ξ',pi:'π',rho:'ρ',sigma:'σ',Sigma:'Σ',tau:'τ',phi:'φ',varphi:'φ',Phi:'Φ',chi:'χ',psi:'ψ',Psi:'Ψ',omega:'ω',Omega:'Ω'};
+  var SYM = {times:'×',cdot:'·',div:'÷',pm:'±',mp:'∓',to:'→',rightarrow:'→',Rightarrow:'⇒',leftarrow:'←',leq:'≤',le:'≤',geq:'≥',ge:'≥',neq:'≠',ne:'≠',approx:'≈',propto:'∝',infty:'∞',partial:'∂',nabla:'∇',circ:'∘',degree:'°',sum:'Σ',prod:'Π',int:'∫',ldots:'…',dots:'…',cdots:'⋯'};
+  var FUNCS = {sin:1,cos:1,tan:1,sec:1,csc:1,cot:1,sinh:1,cosh:1,tanh:1,ln:1,log:1,exp:1,det:1,max:1,min:1,lim:1};
+  var i = 0, n = src.length;
+  function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function readGroup() { // returns raw content of {...} (handles nesting)
+    if (src[i] !== '{') { var c = src[i++]; return c === '\\' ? '\\' + src[i++] : (c || ''); }
+    i++; var depth = 1, start = i;
+    while (i < n && depth > 0) { if (src[i] === '{') depth++; else if (src[i] === '}') depth--; i++; }
+    return src.slice(start, i - 1);
+  }
+  function sub(s) { var save = [i, n, src]; src = s; i = 0; n = s.length; var out = walk(); src = save[2]; i = save[0]; n = save[1]; return out; }
+  function walk() {
+    var out = '';
+    while (i < n) {
+      var c = src[i];
+      if (c === '\\') {
+        i++;
+        var m = /^[a-zA-Z]+/.exec(src.slice(i));
+        if (!m) { var pc = src[i] || ''; out += (pc === ',' || pc === ';' || pc === ':') ? ' ' : (pc === '!' ? '' : esc(pc)); i++; continue; }
+        var cmd = m[0]; i += cmd.length;
+        if (cmd === 'frac' || cmd === 'dfrac' || cmd === 'tfrac') {
+          out += '<span class="mfrac"><span class="mnum">' + sub(readGroup()) + '</span><span class="mden">' + sub(readGroup()) + '</span></span>';
+        } else if (cmd === 'sqrt') {
+          out += '<span class="msqrt">√<span class="msqrt-arg">' + sub(readGroup()) + '</span></span>';
+        } else if (cmd === 'text' || cmd === 'mathrm' || cmd === 'operatorname') {
+          out += '<span class="mtext">' + esc(readGroup()) + '</span>';
+        } else if (cmd === 'bar' || cmd === 'overline') {
+          out += '<span class="mbar">' + sub(readGroup()) + '</span>';
+        } else if (cmd === 'mathcal' || cmd === 'mathbf') {
+          out += '<b>' + sub(readGroup()) + '</b>';
+        } else if (cmd === 'begin') {
+          var env = readGroup();
+          var end = src.indexOf('\\end{' + env + '}', i);
+          var body = src.slice(i, end === -1 ? n : end);
+          i = end === -1 ? n : end + 5 + env.length + 1;
+          var rows = body.split('\\\\').map(function(r) {
+            return '<tr>' + r.split('&').map(function(cell) { return '<td>' + sub(cell.trim()) + '</td>'; }).join('') + '</tr>';
+          }).join('');
+          out += '<span class="mparen">(</span><table class="mmat">' + rows + '</table><span class="mparen">)</span>';
+        } else if (cmd === 'left' || cmd === 'right' || cmd === 'bigl' || cmd === 'bigr' || cmd === 'big') {
+          var d = src[i] || ''; if (d === '\\') { i++; d = src[i] || ''; }
+          i++; if (d !== '.') out += esc(d);
+        } else if (cmd === 'quad') { out += '&emsp;'; }
+        else if (cmd === 'qquad') { out += '&emsp;&emsp;'; }
+        else if (cmd === 'displaystyle' || cmd === 'textstyle' || cmd === 'limits') { /* ignore */ }
+        else if (GREEK[cmd]) { out += GREEK[cmd]; }
+        else if (SYM[cmd]) { out += SYM[cmd]; }
+        else if (FUNCS[cmd]) { out += '<span class="mfn">' + cmd + '</span>'; }
+        else { out += esc(cmd); }
+      } else if (c === '^' || c === '_') {
+        i++;
+        var content = sub(readGroup());
+        out += (c === '^' ? '<sup>' : '<sub>') + content + (c === '^' ? '</sup>' : '</sub>');
+      } else if (c === '{') {
+        out += sub(readGroup());
+      } else if (c === '}') { i++; }
+      else if (/[a-zA-Z]/.test(c)) {
+        var run = /^[a-zA-Z]+/.exec(src.slice(i))[0]; i += run.length;
+        out += '<i>' + run + '</i>';
+      } else { out += esc(c); i++; }
+    }
+    return out;
+  }
+  return '<span class="mm">' + walk() + '</span>';
+}
+
 function renderMathBody(text) {
   var esc = function(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); };
-  var unesc = function(s) { return s.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>'); };
   var toParas = function(t) {
     if (!t.trim()) return '';
     return t.split(/\n\n+/).map(function(p) {
@@ -3230,21 +3379,18 @@ function renderMathBody(text) {
     if (!part) continue;
     if (part.slice(0,2) === '$$' && part.slice(-2) === '$$' && part.length > 4) {
       var math = part.slice(2,-2);
-      if (window.katex) {
-        try { html += '<div class="math-block">' + katex.renderToString(math, {displayMode:true,throwOnError:false}) + '</div>'; }
-        catch(e) { html += '<div class="math-block"><code>' + esc(math) + '</code></div>'; }
-      } else { html += '<div class="math-block"><code>' + esc(math) + '</code></div>'; }
+      try { html += '<div class="math-block">' + miniLatex(math) + '</div>'; }
+      catch(e) { html += '<div class="math-block"><code>' + esc(math) + '</code></div>'; }
     } else {
-      var escaped = esc(part);
-      escaped = escaped.replace(/\$([^$\n]+?)\$/g, function(_, m) {
-        var raw = unesc(m);
-        if (window.katex) {
-          try { return katex.renderToString(raw, {displayMode:false,throwOnError:false}); }
-          catch(e) { return '<code>' + esc(raw) + '</code>'; }
-        }
-        return '<code>' + esc(raw) + '</code>';
-      });
-      html += escaped.split(/\n\n+/).map(function(p) {
+      var pieces = part.split(/\$([^$\n]+?)\$/g);
+      var built = '';
+      for (var k = 0; k < pieces.length; k++) {
+        if (k % 2 === 1) {
+          try { built += miniLatex(pieces[k]); }
+          catch(e) { built += '<code>' + esc(pieces[k]) + '</code>'; }
+        } else { built += esc(pieces[k]); }
+      }
+      html += built.split(/\n\n+/).map(function(p) {
         return p.trim() ? '<p>' + p.replace(/\n/g,'<br>') + '</p>' : '';
       }).join('');
     }
@@ -3256,6 +3402,7 @@ function renderMathBody(text) {
 
 function updateSidebar() {
   document.getElementById('days-left').textContent = daysToExam();
+  document.getElementById('exam-date-label').textContent = fmtExamDate('short');
   const w = currentWeek();
   document.getElementById('sidebar-week-badge').textContent = `Week ${w} of 11`;
   document.getElementById('sidebar-week-topic').textContent = currentWeekTopics();
@@ -3278,6 +3425,12 @@ function navigate(view, topicId = null, tab = 'study') {
   state.topicId = topicId;
   state.tab = tab;
   state.conceptIndex = 0;
+  // Fresh quiz session on every view change — prevents a leftover pool from
+  // another topic (or review mode) bleeding into this one.
+  state.quiz.pool = [];
+  state.quiz.index = 0;
+  state.quiz.answered = false;
+  state.quiz.session = { correct: 0, total: 0, times: [] };
   render();
 }
 
@@ -3292,9 +3445,10 @@ function render() {
     case 'handbook':  root.innerHTML = renderHandbook(); break;
     case 'progress':  root.innerHTML = renderProgress(); break;
     case 'settings':  root.innerHTML = renderSettings(); break;
+    case 'review':    root.innerHTML = renderQuiz(null); break;
     default:          root.innerHTML = renderDashboard();
   }
-  if (state.view === 'topic' && state.tab === 'quiz') {
+  if ((state.view === 'topic' && state.tab === 'quiz') || state.view === 'review') {
     startQuizTimer();
   }
   // re-bind handbook search
@@ -3318,7 +3472,7 @@ function renderDashboard() {
 
   return `
     <div class="page-title">Dashboard</div>
-    <div class="page-subtitle">FE Mechanical Exam — August 25, 2026</div>
+    <div class="page-subtitle">FE Mechanical Exam — ${fmtExamDate()}</div>
 
     <div class="dash-grid">
       <div class="stat-card stat-blue">
@@ -3340,6 +3494,17 @@ function renderDashboard() {
     </div>
 
     <div class="card mb-12">
+      <h2>Weekly Study Hours</h2>
+      <div class="accuracy-bar" style="margin-bottom:0">
+        <div class="accuracy-label" style="font-size:13px;font-weight:600;color:var(--text)">Week ${w}</div>
+        <div class="progress-bar" style="flex:1">
+          <div class="progress-fill ${getWeekHours(w) >= cfg.weekly_hour_target ? 'green' : 'amber'}" style="width:${Math.min(100, pct(getWeekHours(w), cfg.weekly_hour_target))}%"></div>
+        </div>
+        <div class="accuracy-num" style="width:60px">${getWeekHours(w)}/${cfg.weekly_hour_target}h</div>
+      </div>
+    </div>
+
+    <div class="card mb-12">
       <h2>This Week — ${currentWeekTopics()}</h2>
       <div class="topic-grid">
         ${thisWeekTopics.map(t => {
@@ -3348,6 +3513,20 @@ function renderDashboard() {
             <div class="topic-name">${h(t.name)}</div>
             <div class="topic-meta">${t.q_range} questions ${baselineBadge(t.baseline)}</div>
             ${s.total > 0 ? `<div class="text-sm text-muted">${pct(s.correct,s.total)}% (${s.total} done)</div>` : '<div class="text-sm text-muted">Not started</div>'}
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+
+    <div class="card mb-12">
+      <h2>Topic Readiness — All 14</h2>
+      <div class="topic-grid">
+        ${TOPICS.map(t => {
+          const s = getStats(t.id);
+          return `<div class="topic-card" onclick="navigate('topic',${t.id},'study')">
+            <div class="topic-name">${h(t.name)}</div>
+            <div class="topic-meta">${t.q_range} questions ${baselineBadge(effectiveStatus(t))}</div>
+            ${s.total > 0 ? `<div class="text-sm text-muted">${pct(s.correct,s.total)}% (${s.total} done)</div>` : ''}
           </div>`;
         }).join('')}
       </div>
@@ -3371,7 +3550,10 @@ function renderDashboard() {
     <div class="card">
       <h2>Quick Access</h2>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <button class="btn btn-primary" onclick="navigate('week')">📚 This Week</button>
+        ${thisWeekTopics.length ? `
+        <button class="btn btn-primary" onclick="navigate('topic',${thisWeekTopics[0].id},'study')">📖 Study This Week's Topic</button>
+        <button class="btn btn-primary" onclick="navigate('topic',${thisWeekTopics[0].id},'quiz')">✏️ Quiz This Week's Topic</button>` : ''}
+        <button class="btn btn-secondary" onclick="navigate('week')">📚 This Week</button>
         <button class="btn btn-secondary" onclick="navigate('topics')">📋 All Topics</button>
         <button class="btn btn-secondary" onclick="navigate('handbook')">📖 Handbook</button>
         <button class="btn btn-secondary" onclick="navigate('progress')">📊 Progress</button>
@@ -3550,7 +3732,7 @@ function initQuiz(topicId) {
 }
 
 function renderQuiz(t) {
-  if (state.quiz.pool.length === 0) {
+  if (state.quiz.pool.length === 0 && t) {
     initQuiz(t.id);
   }
   const pool = state.quiz.pool;
@@ -3569,7 +3751,7 @@ function renderQuiz(t) {
       <div class="quiz-header">
         <div>
           <div id="timer">0:00</div>
-          <div class="quiz-progress">${qi+1} of ${pool.length} · Session: ${state.quiz.session.correct}/${state.quiz.session.total}</div>
+          <div class="quiz-progress">${qi+1} of ${pool.length} · ${state.quiz.session.correct}/${state.quiz.session.total} correct · avg ${state.quiz.session.times.length ? formatTime(Math.round(state.quiz.session.times.reduce((a,b)=>a+b,0)/state.quiz.session.times.length)) : '—'} · streak ${state.quiz.session.streak || 0}</div>
         </div>
         <button class="btn btn-secondary btn-sm" onclick="endQuizSession()">End Session</button>
       </div>
@@ -3602,6 +3784,7 @@ function renderQuiz(t) {
 
 function renderQuizDone() {
   const s = state.quiz.session;
+  const isReview = state.view === 'review';
   return `
     <div class="card" style="text-align:center;padding:40px">
       <div style="font-size:48px;margin-bottom:16px">${s.correct/s.total >= 0.8 ? '🎉' : s.correct/s.total >= 0.6 ? '👍' : '💪'}</div>
@@ -3611,7 +3794,9 @@ function renderQuizDone() {
         <div class="modal-stat"><div class="num blue-num">${pct(s.correct,s.total)}%</div><div class="lbl">Accuracy</div></div>
       </div>
       <div style="display:flex;gap:10px;justify-content:center;margin-top:16px">
-        <button class="btn btn-primary" onclick="initQuiz(state.topicId);render()">Try Again</button>
+        ${isReview
+          ? `<button class="btn btn-primary" onclick="navigate('progress')">Back to Progress</button>`
+          : `<button class="btn btn-primary" onclick="initQuiz(state.topicId);render()">Try Again</button>`}
         <button class="btn btn-secondary" onclick="navigate('topics')">All Topics</button>
       </div>
     </div>
@@ -3646,9 +3831,11 @@ function submitAnswer(letter) {
   // Record
   state.quiz.session.total++;
   if (correct) state.quiz.session.correct++;
+  state.quiz.session.streak = correct ? (state.quiz.session.streak || 0) + 1 : 0;
   state.quiz.session.times.push(timeSec);
-  recordResult(state.topicId, correct, timeSec);
-  markSeen(state.topicId, p.id);
+  recordResult(p.topic_id, correct, timeSec);
+  markSeen(p.topic_id, p.id);
+  updateWrongIds(p.id, correct);
 
   // Update buttons
   ['A','B','C','D'].forEach(l => {
@@ -3672,17 +3859,21 @@ function nextProblem() {
   state.quiz.index++;
   state.quiz.answered = false;
   if (state.quiz.index >= state.quiz.pool.length) {
+    if (state.quiz.timerInterval) clearInterval(state.quiz.timerInterval);
+    recordSession(currentQuizLabel(), state.quiz.session.correct, state.quiz.session.total);
     render();
     return;
   }
   render();
-  if (state.tab === 'quiz') startQuizTimer();
+  if (state.tab === 'quiz' || state.view === 'review') startQuizTimer();
 }
 
 function endQuizSession() {
   if (state.quiz.timerInterval) clearInterval(state.quiz.timerInterval);
   const s = state.quiz.session;
-  if (s.total === 0) { navigate('topics'); return; }
+  const isReview = state.view === 'review';
+  if (s.total === 0) { navigate(isReview ? 'progress' : 'topics'); return; }
+  recordSession(currentQuizLabel(), s.correct, s.total);
 
   const avgTime = s.times.length > 0 ? Math.round(s.times.reduce((a,b)=>a+b,0)/s.times.length) : 0;
   showModal(`
@@ -3695,10 +3886,26 @@ function endQuizSession() {
       <div class="modal-stat"><div class="num" style="color:var(--primary)">${s.total}</div><div class="lbl">Answered</div></div>
     </div>
     <div class="modal-actions">
-      <button class="btn btn-primary" onclick="closeModal();initQuiz(state.topicId);render()">New Session</button>
+      ${isReview
+        ? `<button class="btn btn-primary" onclick="closeModal();navigate('progress')">Back to Progress</button>`
+        : `<button class="btn btn-primary" onclick="closeModal();initQuiz(state.topicId);render()">New Session</button>`}
       <button class="btn btn-secondary" onclick="closeModal();navigate('topics')">All Topics</button>
     </div>
   `);
+}
+
+function startReviewQuiz() {
+  const wrongIds = getWrongIds();
+  const pool = shuffle(PROBLEMS.filter(p => wrongIds.includes(p.id)));
+  if (!pool.length) return;
+  if (state.quiz.timerInterval) clearInterval(state.quiz.timerInterval);
+  state.view = 'review';
+  state.topicId = null;
+  state.quiz.pool = pool;
+  state.quiz.index = 0;
+  state.quiz.answered = false;
+  state.quiz.session = { correct: 0, total: 0, times: [] };
+  render();
 }
 
 // ─── HANDBOOK ────────────────────────────────────────────────────────────────
@@ -3750,6 +3957,10 @@ function updateHandbookResults(query) {
 function renderProgress() {
   const all = getAllStats();
   const totalQuestions = PROBLEMS.length;
+  const prg = getProgress();
+  const sessions = (prg.sessions || []).slice(0, 8);
+  const wrongIds = getWrongIds();
+  const wrongProblems = PROBLEMS.filter(p => wrongIds.includes(p.id));
 
   return `
     <div class="page-title">Progress</div>
@@ -3787,7 +3998,34 @@ function renderProgress() {
       }).join('')}
     </div>
 
-    <div class="card">
+    <div class="card mb-12">
+      <h2>Recent Sessions</h2>
+      ${sessions.length ? sessions.map(s => `
+        <div class="accuracy-bar" style="margin-bottom:8px">
+          <div class="accuracy-label" style="width:90px">${h(s.date)}</div>
+          <div style="flex:1;font-size:13px;font-weight:600;color:var(--text)">${h(s.label)}</div>
+          <div class="accuracy-num" style="width:70px">${s.correct}/${s.total} · ${pct(s.correct,s.total)}%</div>
+        </div>
+      `).join('') : '<p class="text-muted" style="font-size:13px">No quiz sessions yet — take a quiz to see history here.</p>'}
+    </div>
+
+    <div class="card mb-12">
+      <h2>Missed Problems${wrongProblems.length ? ` (${wrongProblems.length})` : ''}</h2>
+      ${wrongProblems.length ? `
+        <p class="text-muted mb-12" style="font-size:13px">Problems you answered wrong. Get them right in a review session to clear them.</p>
+        ${wrongProblems.slice(0, 10).map(p => {
+          const t = TOPICS.find(x => x.id === p.topic_id);
+          return `<div class="accuracy-bar" style="margin-bottom:6px">
+            <div class="accuracy-label" style="width:90px">${h(p.id)}</div>
+            <div style="flex:1;font-size:13px;color:var(--text)">${t ? h(t.name) : ''} · ${h(p.subtopic)}</div>
+          </div>`;
+        }).join('')}
+        ${wrongProblems.length > 10 ? `<p class="text-muted" style="font-size:12px">…and ${wrongProblems.length - 10} more</p>` : ''}
+        <button class="btn btn-primary" style="margin-top:10px" onclick="startReviewQuiz()">✏️ Review Missed Problems</button>`
+      : '<p class="text-muted" style="font-size:13px">Nothing to review — no missed problems 🎉</p>'}
+    </div>
+
+    <div class="card mb-12">
       <h2>11-Week Plan</h2>
       <div class="week-plan-grid">
         ${WEEK_PLAN.map(wp => `
@@ -3796,6 +4034,17 @@ function renderProgress() {
             <div class="week-topics">${h(wp.topics)}</div>
           </div>
         `).join('')}
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Data</h2>
+      <div class="setting-row">
+        <div>
+          <div class="setting-label">Reset All Progress</div>
+          <div class="setting-desc">Clear all quiz history, sessions, and missed problems</div>
+        </div>
+        <button class="btn btn-danger btn-sm" onclick="confirmReset()">Reset</button>
       </div>
     </div>
   `;
@@ -3808,6 +4057,31 @@ function renderSettings() {
   return `
     <div class="page-title">Settings</div>
     <div class="page-subtitle">Customize your study experience</div>
+
+    <div class="card mb-12">
+      <h2>Exam Date</h2>
+      <div class="setting-row">
+        <div>
+          <div class="setting-label">NCEES FE Mechanical</div>
+          <div class="setting-desc">${daysToExam()} days away — countdown updates everywhere</div>
+        </div>
+        <input type="date" class="date-input" id="exam-date-input" value="${cfg.exam_date}" onchange="setExamDate(this.value)">
+      </div>
+    </div>
+
+    <div class="card mb-12">
+      <h2>Study Hours</h2>
+      <div class="setting-row">
+        <div>
+          <div class="setting-label">Log hours for Week ${currentWeek()}</div>
+          <div class="setting-desc">${getWeekHours(currentWeek())} of ${cfg.weekly_hour_target}h logged this week</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="number" class="date-input" id="hours-input" min="0" step="0.5" value="1" style="width:74px">
+          <button class="btn btn-primary btn-sm" onclick="logHours()">Add Hours</button>
+        </div>
+      </div>
+    </div>
 
     <div class="card mb-12">
       <h2>Quiz Options</h2>
@@ -3846,7 +4120,7 @@ function renderSettings() {
       <h2>About</h2>
       <p class="text-muted" style="font-size:13px;line-height:1.6">
         FE Mechanical Tutor · 112 practice problems across 14 topics.<br>
-        Exam: August 25, 2026 · NCEES FE Mechanical
+        Exam: ${fmtExamDate()} · NCEES FE Mechanical
       </p>
     </div>
   `;
@@ -3859,9 +4133,25 @@ function toggleHard() {
   render();
 }
 
+function setExamDate(v) {
+  if (!v) return;
+  const d = loadData();
+  d.config.exam_date = v;
+  saveData(d.config, d.progress);
+  render();
+}
+
+function logHours() {
+  const el = document.getElementById('hours-input');
+  const v = parseFloat(el.value);
+  if (!v || v <= 0) return;
+  addWeekHours(v);
+  render();
+}
+
 function resetStartDate() {
   const d = loadData();
-  d.config.study_start = new Date().toISOString().slice(0,10);
+  d.config.study_start = new Date().toLocaleDateString('en-CA');
   saveData(d.config, d.progress);
   render();
 }
@@ -3913,7 +4203,7 @@ function init() {
     showModal(`
       <h2 style="margin-bottom:12px">Welcome to FE Mechanical Tutor</h2>
       <p>Today is Day 1 of your 11-week study plan.</p>
-      <p>Your exam target: <strong>August 25, 2026</strong> · <strong>${daysToExam()} days away</strong></p>
+      <p>Your exam target: <strong>${fmtExamDate()}</strong> · <strong>${daysToExam()} days away</strong></p>
       <p>This week: <strong>Mathematics & Probability/Statistics</strong></p>
       <p style="margin-top:8px;font-size:13px;color:var(--text-muted)">112 practice problems across 14 topics. Study the concepts, then quiz yourself. The handbook page is always shown — practice finding it fast.</p>
       <div class="modal-actions" style="margin-top:20px">
